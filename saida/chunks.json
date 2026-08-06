@@ -1,0 +1,665 @@
+[
+  {
+    "texto": "Ata de Reunião All-Hands (Q2 Review & Metas Q3) - Tyche Pay Data: 01 de Agosto de 2026 | Horário: 15:00 às 16:30 Local: Transmissão Via Google Meet (Toda a Empresa) 1. Participantes e Abertura A reunião contou com a presença de 145 colaboradores da Tyche Pay. A abertura foi realizada pela CEO Helena Ramos, repassando os principais marcos institucionais e a cultura de inovação da empresa. 2. Pauta e Discussões 2.1 Resultados Financeiros e Operacionais (CFO e COO) Mariana Costa (CFO) apresentou a evolução do ARR (Annual Recurring Revenue) com crescimento de 22% frente ao trimestre anterior. Gabriel Mendonça (COO) apresentou o relatório de SLA de suporte com tempo médio de resposta no chat abaixo de 45 segundos. 2.2 Roadmap de Tecnologia e Cibersegurança (CTO e CISO) Lucas Siqueira (CTO) dest",
+    "metadados": {
+      "arquivo_origem": "Docs\\comunicacao-interna\\Tyche Pay - Ata de Reunião All-Hands.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Comunicação Interna",
+      "responsavel": "Helena Ramos (CEO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno (uso corporativo)",
+      "data_atualizacao": "01/08/2026"
+    }
+  },
+  {
+    "texto": "xo de 45 segundos. 2.2 Roadmap de Tecnologia e Cibersegurança (CTO e CISO) Lucas Siqueira (CTO) destacou a migração bem-sucedida do banco de dados para arquitetura multirregião. Camila Vasconcelos (CISO) reportou zero incidentes críticos de segurança no trimestre e reforçou os treinamentos de phishing com a equipe. 3. Encaminhamentos e Deliberações (Action Items) Ação / Deliberação Responsável Prazo de Entrega\n\nFinalizar especificação do módulo de Crédito PJ Time de Produtos 25/08/2026 Atualização dos relatórios de reconciliação antifraude Rodrigo Andrade (Compliance) 15/08/2026\n\nAção / Deliberação Responsável Prazo de Entrega\n\nDivulgação da pesquisa de clima organizacional do Q3 Time de RH 10/08/2026",
+    "metadados": {
+      "arquivo_origem": "Docs\\comunicacao-interna\\Tyche Pay - Ata de Reunião All-Hands.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Comunicação Interna",
+      "responsavel": "Helena Ramos (CEO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno (uso corporativo)",
+      "data_atualizacao": "01/08/2026"
+    }
+  },
+  {
+    "texto": "10/08/2026",
+    "metadados": {
+      "arquivo_origem": "Docs\\comunicacao-interna\\Tyche Pay - Ata de Reunião All-Hands.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Comunicação Interna",
+      "responsavel": "Helena Ramos (CEO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno (uso corporativo)",
+      "data_atualizacao": "01/08/2026"
+    }
+  },
+  {
+    "texto": "Newsletter Interna - Tyche News (Edição de Agosto/2026) Comunicação Quinzenal para o Time Tyche Pay 1. Mensagem da Liderança: Resultados do Q2 2026 Olá, Tychers! Encerramos o segundo trimestre de 2026 superando marcas históricas! Ultrapassamos o volume de R$ 1,2 bilhão em transações Pix processadas na nossa plataforma e alcançamos um NPS recorde de 79 pontos no suporte ao cliente. Esse resultado é reflexo do empenho e da colaboração de cada uma das nossas áreas. Parabéns a todo o time! 2. Destaque de Produto: Lançamento da Feature \"Pix Agendado Recorrente\" Na última semana, o time de Produto e Engenharia colocou no ar a nova funcionalidade de Pix Agendado Recorrente para contas PJ e PF. Com essa novidade, nossos clientes podem automatizar pagamentos mensais sem complicações. A taxa de adoç",
+    "metadados": {
+      "arquivo_origem": "Docs\\comunicacao-interna\\Tyche Pay - Newsletter Interna (Agosto 2026).pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Comunicação Interna",
+      "responsavel": "RH / Comunicação Interna (owner nominal a definir)",
+      "versao": "Edição Ago/2026",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "essa novidade, nossos clientes podem automatizar pagamentos mensais sem complicações. A taxa de adoção nos primeiros 5 dias de lançamento atingiu 14% da nossa base ativa de clientes PJ! 3. Aniversariantes do Mês de Agosto 🎂 Desejamos muitos anos de vida, saúde e sucesso para os nossos colaboradores que comemoram aniversário neste mês: ● 05/08: Juliana Martins (Design/UX) ● 12/08: Fernando Dias (Engenharia de Software) ● 19/08: Beatriz Lima (Atendimento & CX) ● 27/08: Roberto Rocha (Compliance) Lembrem-se de agendar o seu Day Off de Aniversário junto ao seu gestor!",
+    "metadados": {
+      "arquivo_origem": "Docs\\comunicacao-interna\\Tyche Pay - Newsletter Interna (Agosto 2026).pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Comunicação Interna",
+      "responsavel": "RH / Comunicação Interna (owner nominal a definir)",
+      "versao": "Edição Ago/2026",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Dicionário de Dados do Banco Relacional - Tyche Pay Mapeamento de Tabelas, Atributos, Tipos e Chaves do Core Banking Database 1. Tabela: users (Cadastro Principal de Clientes) Campo (Column) Tipo (Data Type) Chave / Restrição Descrição\n\nid UUID Primary Key Identificador único do usuário. full_name VARCHAR(255) NOT NULL Nome completo do cliente. document_number VARCHAR(14) UNIQUE / NOT NULL Número do CPF ou CNPJ (apenas dígitos). status VARCHAR(20) DEFAULT 'PENDING' Status da conta: PENDING, ACTIVE, BLOCKED, CLOSED. 2. Tabela: accounts (Contas Digitais) Campo (Column) Tipo (Data Type) Chave / Restrição Descrição\n\nid UUID Primary Key Identificador único da conta. user_id UUID Foreign Key Chave estrangeira\n\nCampo (Column) Tipo (Data Type) Chave / Restrição Descrição\n\n(users.id) apontando para",
+    "metadados": {
+      "arquivo_origem": "Docs\\dados-e-sistemas\\Tyche Pay - Dicionário de Dados do Banco Relacional.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Dados e Sistemas",
+      "responsavel": "Lucas Siqueira (CTO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno / Restrito (estrutura de schema sensível)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": " estrangeira\n\nCampo (Column) Tipo (Data Type) Chave / Restrição Descrição\n\n(users.id) apontando para o dono da conta. balance DECIMAL(15,2) DEFAULT 0.00 Saldo disponível em conta corrente. 3. Tabela: transactions (Ledger de Movimentações) Campo (Column) Tipo (Data Type) Chave / Restrição Descrição\n\nid UUID Primary Key ID único da transação. amount DECIMAL(15,2) NOT NULL Valor monetário da movimentação. type VARCHAR(30) NOT NULL Tipo de transação: PIX_IN, PIX_OUT, TED_OUT, BOLETO_PAY.",
+    "metadados": {
+      "arquivo_origem": "Docs\\dados-e-sistemas\\Tyche Pay - Dicionário de Dados do Banco Relacional.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Dados e Sistemas",
+      "responsavel": "Lucas Siqueira (CTO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno / Restrito (estrutura de schema sensível)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Documentação de API Interna (Core Banking API v1) - Tyche Pay Especificação Técnica para Desenvolvedores e Integrações do Ecossistema Tyche Pay 1. Visão Geral e Autenticação A API Core da Tyche Pay utiliza arquitetura REST sobre HTTPS. Todas as requisições devem conter o cabeçalho de autenticação Bearer Token (JWT - JSON Web Token): Authorization: Bearer <seu_access_token_jwt> Content-Type: application/json 2. Endpoints do Recurso Pix 2.1 Criar Transferência Pix HTTP Method: POST URL Path: /v1/pix/payments Exemplo de Payload de Requisição (Request JSON): { \"account_id\": \"acc_8841a9bc-7e23-41a2\", \"amount\": 150.50, \"currency\": \"BRL\", \"pix_key_type\": \"CPF\", \"pix_key\": \"12345678900\", \"description\": \"Pagamento de servicos prestados\", \"metadata\": { \"client_device_id\": \"dev_iphone14_8911\" } } Exe",
+    "metadados": {
+      "arquivo_origem": "Docs\\dados-e-sistemas\\Tyche Pay - Documentação de API Interna.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Dados e Sistemas",
+      "responsavel": "Lucas Siqueira (CTO)",
+      "versao": "v1",
+      "classificacao_acesso": "Interno / Restrito (uso de desenvolvedores)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "n\": \"Pagamento de servicos prestados\", \"metadata\": { \"client_device_id\": \"dev_iphone14_8911\" } } Exemplo de Resposta de Sucesso (Response JSON 201 Created): { \"transaction_id\": \"tx_9930214a-bc12-4091\", \"status\": \"PROCESSING\", \"amount\": 150.50, \"created_at\": \"202602T14:32:00Z\",\n\n\"recipient\": { \"name\": \"Carlos Eduardo Silva\", \"bank_code\": \"341\", \"masked_cpf\": \"***.567.890-**\" } } 3. Códigos de Erro Padrão ● 400 Bad Request: Dados ausentes ou formato de payload inválido. ● 401 Unauthorized: Token de acesso expirado ou inválido. ● 422 Unprocessable Entity: Saldo insuficiente em conta para concluir a transação.",
+    "metadados": {
+      "arquivo_origem": "Docs\\dados-e-sistemas\\Tyche Pay - Documentação de API Interna.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Dados e Sistemas",
+      "responsavel": "Lucas Siqueira (CTO)",
+      "versao": "v1",
+      "classificacao_acesso": "Interno / Restrito (uso de desenvolvedores)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Tyche Pay - Apresentação Institucional Visão, Missão, Valores, Descrição e Liderança Executiva 1. Descrição da Empresa A Tyche Pay é uma fintech e instituição de pagamento digital inovadora, fundada com o objetivo de democratizar o acesso a serviços financeiros seguros, transparentes e eficientes. Unindo tecnologia de ponta, inteligência de dados e foco na experiência do usuário, a Tyche Pay oferece uma plataforma completa de pagamentos, transferências, gestão financeira e soluções para pessoas físicas e jurídicas. 2. Visão, Missão e Valores Visão Ser a plataforma de serviços financeiros digitais mais confiável e intuitiva da América Latina, capacitando indivíduos e empresas a alcançarem sua autonomia financeira de forma simples e descomplicada. Missão Transformar a relação das pessoas com",
+    "metadados": {
+      "arquivo_origem": "Docs\\Estrategico\\Tyche Pay - Apresentação Institucional.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Estratégico",
+      "responsavel": "Helena Ramos (CEO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público controlado (client-facing / institucional)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": " autonomia financeira de forma simples e descomplicada. Missão Transformar a relação das pessoas com o dinheiro por meio de soluções tecnológicas ágeis, transparentes e seguras, eliminando burocracias desnecessárias e proporcionando excelência em atendimento. Valores ● Transparência Absoluta: Comunicação clara, sem taxas escondidas ou letras miúdas. ● Segurança em Primeiro Lugar: Proteção rigorosa de dados e transações operacionais. ● Inovação Centrada no Cliente: Desenvolvimento constante de recursos que realmente resolvem dores reais dos usuários. ● Inclusão Financeira: Acesso democratizado a ferramentas bancárias modernas para todos os perfis. ● Responsabilidade e Ética: Condução dos negócios alinhada às melhores práticas regulatórias e ambientais/sociais.\n\n3. Responsáveis por Área (Lid",
+    "metadados": {
+      "arquivo_origem": "Docs\\Estrategico\\Tyche Pay - Apresentação Institucional.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Estratégico",
+      "responsavel": "Helena Ramos (CEO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público controlado (client-facing / institucional)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "cios alinhada às melhores práticas regulatórias e ambientais/sociais.\n\n3. Responsáveis por Área (Liderança Executiva) Abaixo apresentamos o quadro executivo da Tyche Pay, responsável por conduzir as operações e a estratégia da companhia: Nome Fictício Cargo / Área Principais Responsabilidades\n\nHelena Ramos Chief Executive Officer (CEO) Direcionamento estratégico geral, relação com investidores e expansão de mercado. Lucas Siqueira Chief Technology Officer (CTO) Arquitetura de sistemas, desenvolvimento de produtos digitais e infraestrutura cloud. Camila Vasconcelos Chief Information Security Officer (CISO) Segurança da informação, prevenção a ciberataques e proteção de dados. Rodrigo Andrade Chief Compliance & Legal Officer (CCO) Conformidade regulatória, PLD/FTP, jurídico e governança corp",
+    "metadados": {
+      "arquivo_origem": "Docs\\Estrategico\\Tyche Pay - Apresentação Institucional.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Estratégico",
+      "responsavel": "Helena Ramos (CEO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público controlado (client-facing / institucional)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Chief Compliance & Legal Officer (CCO) Conformidade regulatória, PLD/FTP, jurídico e governança corporativa. Mariana Costa Chief Financial Officer (CFO) Planejamento financeiro, contabilidade, gestão de riscos e tesouraria. Gabriel Mendonça Chief Operating & Experience Officer (COO/CXO) Operações de atendimento, suporte ao cliente, qualidade e pós-venda.",
+    "metadados": {
+      "arquivo_origem": "Docs\\Estrategico\\Tyche Pay - Apresentação Institucional.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 3,
+      "categoria": "Estratégico",
+      "responsavel": "Helena Ramos (CEO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público controlado (client-facing / institucional)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Área / Centro de Custo Categoria de Despesa Orçamento Q1 (R$) Orçamento Q2 (R$) Orçamento Q3 (R$) Orçamento Q4 (R$) Total Anual (R$) Tecnologia e Engenharia Infraestrutura Cloud & AWS 250000.00 280000.00 310000.00 350000.00 1190000.00 Tecnologia e Engenharia Licenças de Software & Dev 80000.00 85000.00 90000.00 95000.00 350000.00 Produtos e Design Ferramentas de UX e Analytics 35000.00 38000.00 40000.00 42000.00 155000.00 Marketing e Growth Aquisição de Mídia (Ads) 180000.00 220000.00 250000.00 300000.00 950000.00 Marketing e Growth Eventos e PR 40000.00 60000.00 50000.00 70000.00 220000.00 Operações e Suporte Plataforma de Atendimento e CRM 50000.00 52000.00 55000.00 58000.00 215000.00 Compliance e Risco Bureaus de Crédito e KYC 90000.00 105000.00 120000.00 135000.00 450000.00 Recursos Hu",
+    "metadados": {
+      "arquivo_origem": "Docs\\financeiro\\Tyche Pay - Planilha de Budget por Área (2026) - Google Planilhas.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Financeiro e Contábil",
+      "responsavel": "Mariana Costa (CFO)",
+      "versao": "2026",
+      "classificacao_acesso": "Interno / Restrito (dados financeiros sensíveis)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "liance e Risco Bureaus de Crédito e KYC 90000.00 105000.00 120000.00 135000.00 450000.00 Recursos Humanos Treinamentos e Benefícios 120000.00 125000.00 130000.00 135000.00 510000.00 Jurídico e Consultoria Auditoria e Consultorias 60000.00 40000.00 40000.00 70000.00 210000.00 Total Geral Geral 905000.00 1005000.00 1085000.00 1250000.00 4245000.00",
+    "metadados": {
+      "arquivo_origem": "Docs\\financeiro\\Tyche Pay - Planilha de Budget por Área (2026) - Google Planilhas.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Financeiro e Contábil",
+      "responsavel": "Mariana Costa (CFO)",
+      "versao": "2026",
+      "classificacao_acesso": "Interno / Restrito (dados financeiros sensíveis)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Política Interna de Reembolso de Despesas - Tyche Pay Normas Financeiras e Procedimentos de Comprovação de Gastos 1. Objetivo Esta política estabelece os critérios e procedimentos necessários para o ressarcimento de despesas corporativas realizadas por colaboradores a serviço da Tyche Pay, assegurando a transparência, conformidade fiscal e o controle orçamentário. 2. Despesas Elegíveis para Reembolso ● Viagens a Trabalho: Passagens aéreas, hospedagem e deslocamentos (táxi, aplicativo de transporte ou aluguel de veículo) previamente autorizados. ● Alimentação em Viagem/Representação: Refeições durante viagens corporativas até o limite diário de R$ 120,00 por colaborador. ● Cursos e Certificações: Treinamentos e eventos profissionais aprovados previamente pela liderança e pelo time de RH. ● ",
+    "metadados": {
+      "arquivo_origem": "Docs\\financeiro\\Tyche Pay - Política de Reembolso de Despesas.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Financeiro e Contábil",
+      "responsavel": "Mariana Costa (CFO) / RH",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "ões: Treinamentos e eventos profissionais aprovados previamente pela liderança e pelo time de RH. ● Materiais e Softwares Eventuais: Compras urgentes de insumos operacionais autorizadas pela gestão de TI/Finanças. 3. Prazos e Fluxo de Aprovação 1. Envio da Solicitação: O colaborador deve submeter o relatório de despesas via sistema interno até o dia 20 de cada mês. 2. Documentação Obrigatória: É indispensável o envio de Nota Fiscal ou Cupom Fiscal discriminado com o CNPJ da Tyche Pay (para despesas acimas de R$ 50,00). Comprovantes de maquininha sem discriminação do serviço/produto não serão aceitos. 3. Aprovação Gestora: O gestor direto tem até 3 dias úteis para revisar e aprovar o relatório no sistema. 4. Pagamento: O reembolso será depositado via Pix na conta bancária do colaborador em ",
+    "metadados": {
+      "arquivo_origem": "Docs\\financeiro\\Tyche Pay - Política de Reembolso de Despesas.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Financeiro e Contábil",
+      "responsavel": "Mariana Costa (CFO) / RH",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "o no sistema. 4. Pagamento: O reembolso será depositado via Pix na conta bancária do colaborador em até 5 dias úteis após a aprovação final do time financeiro.",
+    "metadados": {
+      "arquivo_origem": "Docs\\financeiro\\Tyche Pay - Política de Reembolso de Despesas.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Financeiro e Contábil",
+      "responsavel": "Mariana Costa (CFO) / RH",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Tabela de Tarifas e Comissões - Tyche Pay Vigência a partir de Agosto de 2026 A Tyche Pay preza pela transparência. Abaixo detalhamos a estrutura de custos, taxas e tarifas aplicáveis às contas digitais Pessoas Físicas (PF) e Pessoas Jurídicas (PJ). 1. Conta Pessoa Física (PF) Serviço / Operação Tarifa Observações\n\nAbertura e manutenção de conta Grátis Isento de taxa de mensalidade. Envio e recebimento de Pix Grátis Ilimitado para uso pessoal. Transferência TED (Outros Bancos) Grátis Até 5 gratuitas/mês (R$ 3,50/unid. adicional). Emissão de Cartão Físico (1a via) Grátis Envio gratuito para todo o Brasil. Saque na Rede Banco24Horas R$ 6,50 Por saque realizado. 2. Conta Pessoa Jurídica (PJ) e Soluções de Pagamento Serviço / Operação Tarifa / Taxa Prazo de Recebimento\n\nRecebimento via Pix (QR",
+    "metadados": {
+      "arquivo_origem": "Docs\\financeiro\\Tyche Pay - Tabela de Tarifas e Comissões.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Financeiro e Contábil",
+      "responsavel": "Mariana Costa (CFO)",
+      "versao": "Vigência Ago/2026",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Soluções de Pagamento Serviço / Operação Tarifa / Taxa Prazo de Recebimento\n\nRecebimento via Pix (QR 0,89% por transação Na hora\n\nServiço / Operação Tarifa / Taxa Prazo de Recebimento\n\nCode / API) Emissão e Liquidação de Boleto R$ 1,90 por boleto pago D+1 dia útil Cartão de Débito (Maquininha/E-commerce) 1,29% D+1 dia útil Cartão de Crédito À Vista 2,89% D+30 dias (ou D+1 com taxa de antecipação)",
+    "metadados": {
+      "arquivo_origem": "Docs\\financeiro\\Tyche Pay - Tabela de Tarifas e Comissões.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Financeiro e Contábil",
+      "responsavel": "Mariana Costa (CFO)",
+      "versao": "Vigência Ago/2026",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Política de Privacidade e Proteção de Dados - Tyche Pay Última atualização: Agosto de 2026 1. Introdução e Objetivo A Tyche Pay Digital Ltda. (\"Tyche Pay\") tem o compromisso de proteger a privacidade e os dados pessoais de seus clientes e usuários (\"Usuários\"). Esta Política de Privacidade explica como coletamos, utilizamos, armazenamos, compartilhamos e protegemos suas informações pessoais em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD - Lei no 13.709/2018) e regulamentações aplicáveis do Banco Central do Brasil. 2. Dados Pessoais Coletados Para prestarmos nossos serviços financeiros com segurança e eficiência, podemos coletar os seguintes tipos de dados: ● Dados Cadastrais: Nome completo, CPF/CNPJ, data de nascimento, endereço residencial/comercial, e-mail, número de",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Política de Privacidade e Proteção de Dados.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "rais: Nome completo, CPF/CNPJ, data de nascimento, endereço residencial/comercial, e-mail, número de telefone e filiação. ● Dados de Identificação e Autenticação: Documento de identidade (RG ou CNH), foto selfie (biometria facial), senhas e dados biométricos cadastrados no aplicativo. ● Dados Financeiros e Transacionais: Histórico de pagamentos, transferências (Pix, TED), saldos, compras com cartão de débito/crédito, dados bancários de origem/destino e limites operacionais. ● Dados de Dispositivo e Navegação: Endereço IP, modelo do aparelho, sistema operacional, dados de geolocalização e identificadores exclusivos de dispositivo. 3. Finalidade do Tratamento de Dados Utilizamos os dados coletados para as seguintes finalidades: 1. Abertura, manutenção e gestão da conta de pagamento Tyche Pay",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Política de Privacidade e Proteção de Dados.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "ados para as seguintes finalidades: 1. Abertura, manutenção e gestão da conta de pagamento Tyche Pay. 2. Processamento de transações financeiras e validação de autenticidade. 3. Cumprimento de obrigações legais e regulatórias impostas pelo Banco Central do Brasil, Receita Federal e Conselho de Controle de Atividades Financeiras (COAF). 4. Prevenção à fraude, verificação de identidade e garantia da segurança das operações. 5. Aprimoramento contínuo dos serviços, suporte ao cliente e envio de comunicações institucionais ou operacionais.\n\n4. Compartilhamento de Dados A Tyche Pay poderá compartilhar seus dados estritamente quando necessário para a operação do negócio e cumprimento de exigências legais, com: ● Parceiros operacionais e bancários essenciais para o liquidação de pagamentos. ● Bure",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Política de Privacidade e Proteção de Dados.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "legais, com: ● Parceiros operacionais e bancários essenciais para o liquidação de pagamentos. ● Bureaus de crédito e serviços de prevenção a fraudes e análise de risco. ● Órgãos reguladores, autoridades policiais ou judiciais, mediante determinação legal ou exigência regulatória. ● Provedores de serviços em nuvem e infraestrutura de TI sob rigorosos contratos de confidencialidade. 5. Direitos dos Titulares de Dados O Usuário, na qualidade de titular dos dados pessoais, possui os seguintes direitos garantidos pela LGPD: ● Confirmação da existência de tratamento e acesso aos dados pessoais. ● Correção de dados incompletos, inexatos ou desatualizados. ● Anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos. ● Revogação do consentimento a qualquer momento. ● Portabilidade ",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Política de Privacidade e Proteção de Dados.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 3,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "ados desnecessários ou excessivos. ● Revogação do consentimento a qualquer momento. ● Portabilidade dos dados a outro fornecedor de serviço, mediante requisição expressa. 6. Contato do Encarregado de Proteção de Dados (DPO) Para exercer seus direitos ou esclarecer dúvidas sobre esta Política de Privacidade, entre em contato com nosso Encarregado de Proteção de Dados pelo e-mail: dpo@tychepay.com.br.",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Política de Privacidade e Proteção de Dados.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 4,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Política de Segurança e Prevenção de Fraudes - Tyche Pay Diretrizes Operacionais e Tecnológicas de Segurança da Informação 1. Compromisso com a Segurança A Tyche Pay adota os mais avançados padrões globais de cibersegurança e proteção da informação para garantir a integridade, confidencialidade e disponibilidade dos recursos financeiros e dados dos nossos Usuários. 2. Arquitetura de Segurança da Plataforma Nossa infraestrutura tecnológica conta com múltiplas camadas de proteção, destacando-se: ● Criptografia Ponta a Ponta: Todos os dados transmitidos entre o aplicativo e os servidores da Tyche Pay utilizam protocolo TLS 1.3 com criptografia AES-256. ● Biometria e Autenticação Multifator (MFA): Acesso à conta e confirmação de pagamentos exigem validação biométrica (facial ou digital) e senh",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Política de Segurança e Prevenção de Fraudes.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Camila Vasconcelos (CISO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno / Restrito (detalhes técnicos de criptografia e MFA)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "): Acesso à conta e confirmação de pagamentos exigem validação biométrica (facial ou digital) e senhas numéricas exclusivas. ● Monitoramento Antifraude em Tempo Real: Motores de inteligência artificial analisam comportamentos de consumo, geolocalização e padrões transacionais em tempo real para barrar operações atípicas. ● Tokenização de Cartões: Os números dos cartões virtuais e físicos são tokenizados, evitando a exposição do número real do cartão em transações online. 3. Prevenção à Lavagem de Dinheiro (PLD/FTP) A Tyche Pay cumpre rigorosamente as normas do Banco Central do Brasil pertinentes à Prevenção à Lavagem de Dinheiro e ao Financiamento do Terrorismo (PLD/FTP): 1. Validação da identidade dos clientes (processo de Know Your Customer - KYC) no momento da abertura de conta. 2. Anál",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Política de Segurança e Prevenção de Fraudes.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Camila Vasconcelos (CISO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno / Restrito (detalhes técnicos de criptografia e MFA)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "ntidade dos clientes (processo de Know Your Customer - KYC) no momento da abertura de conta. 2. Análise de Pessoas Politicamente Expostas (PPE) e checagem de listas restritivas nacionais e internacionais. 3. Comunicação compulsória ao COAF sobre transações suspeitas ou atípicas que ultrapassem parâmetros regulatórios. 4. Recomendações de Segurança aos Clientes\n\nOrientamos nossos clientes a adotarem as seguintes práticas recomendadas de segurança: ● Nunca divulgar senhas, códigos de validação por SMS ou tokens a terceiros. A Tyche Pay jamais solicita senhas ou códigos por telefone/WhatsApp. ● Manter o sistema operacional do smartphone e o aplicativo Tyche Pay sempre atualizados na loja oficial (Google Play Store ou Apple App Store). ● Ativar o bloqueio de tela por senha ou biometria no smar",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Política de Segurança e Prevenção de Fraudes.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Camila Vasconcelos (CISO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno / Restrito (detalhes técnicos de criptografia e MFA)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "l (Google Play Store ou Apple App Store). ● Ativar o bloqueio de tela por senha ou biometria no smartphone. ● Em caso de perda ou roubo do celular, solicitar imediatamente o bloqueio preventivo da conta por meio do nosso canal de atendimento de emergência.",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Política de Segurança e Prevenção de Fraudes.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 3,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Camila Vasconcelos (CISO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno / Restrito (detalhes técnicos de criptografia e MFA)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Procedimento de Abertura de Conta e KYC Interno - Tyche Pay Manual de Procedimentos Operacionais de Compliance e Verificação de Identidade 1. Visão Geral do Fluxo de Cadastro O processo de Know Your Customer (KYC) da Tyche Pay visa identificar, autenticar e validar os clientes que solicitam abertura de conta, mitigando riscos de usurpação de identidade, fraudes financeiras e lavagem de dinheiro. 2. Etapas da Verificação Operacional Etapa 1: Validação Cadastral e Consultas Automatizadas Assim que o usuário envia os dados pelo aplicativo, o sistema realiza as seguintes checagens automáticas via API: ● Consulta à Receita Federal: Validação da situação do CPF/CNPJ (deve estar em situação \"Ativa\" ou \"Regular\"). ● Checagem em Listas Restritivas: Varredura de OFAC, Interpol, PEP (Pessoas Politica",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Procedimento de Abertura de Conta e KYC Interno.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno / Restrito",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": " ou \"Regular\"). ● Checagem em Listas Restritivas: Varredura de OFAC, Interpol, PEP (Pessoas Politicamente Expostas) e Sanções Internacionais. Etapa 2: Análise de Documentoscopia e Biometria Facial Caso o score de automação fique em zona cinzenta (Score entre 60 e 80), o cadastro é direcionado para a mesa de análise manual de Compliance: 1. Verificação Documental: Constar se RG/CNH possui sinais de adulteração digital, divergência de fonte ou fotos sobrepostas. 2. Match Biométrico (Liveness Test): Comparação da selfie enviada com a foto do documento oficial fornecido. 3. Matriz de Decisão do Analista Resultado da Análise Ação do Analista SLA de Decisão\n\nAprovado (Sem Aprovar conta no sistema Imediato / Automático\n\nResultado da Análise Ação do Analista SLA de Decisão\n\ndivergências) interno c",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Procedimento de Abertura de Conta e KYC Interno.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno / Restrito",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Imediato / Automático\n\nResultado da Análise Ação do Analista SLA de Decisão\n\ndivergências) interno com limite padrão. Pendente (Documento ilegível/cortado) Solicitar reenvio de documento com instrução específica via push/e-mail. Até 2 horas Reprovado (Fraude comprovada / CPF irregular) Recusar cadastro, registrar motivo interno no CRM e bloquear dispositivo. Até 1 hora",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Procedimento de Abertura de Conta e KYC Interno.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno / Restrito",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Termos e Condições de Uso - Tyche Pay Última atualização: Agosto de 2026 1. Aceitação dos Termos Ao criar uma conta ou utilizar os serviços prestados pela Tyche Pay Digital Ltda. (\"Tyche Pay\"), você (\"Usuário\") declara ter lido, compreendido e aceito integralmente estes Termos e Condições de Uso. Caso não concorde com qualquer disposição aqui prevista, abstenha-se de utilizar a plataforma. 2. Cadastro e Requisitos de Acesso Para utilizar a conta de pagamento Tyche Pay, o Usuário deve preencher os seguintes requisitos: ● Ser pessoa física com idade igual ou superior a 18 anos ou pessoa jurídica devidamente constituída e representada. ● Possuir CPF ou CNPJ em situação regular perante a Receita Federal do Brasil. ● Fornecer dados cadastrais verídicos, completos e atualizados no aplicativo Tyc",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Termos e Condições de Uso.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": " Federal do Brasil. ● Fornecer dados cadastrais verídicos, completos e atualizados no aplicativo Tyche Pay. ● Submeter-se aos procedimentos de validação de identidade e análise de crédito/segurança. 3. Funcionamento da Conta Digital e Serviços A conta Tyche Pay é uma conta de pagamento pré-paga individual e intransferível. Por meio da plataforma, o Usuário poderá: ● Realizar e receber pagamentos via Pix, TED e código de barras (boletos). ● Emitir cobranças e pagamentos recorrentes. ● Utilizar cartões virtuais e físicos associados ao saldo em conta. ● Acompanhar extratos e comprovantes de movimentação financeira em tempo real. 4. Responsabilidades do Usuário O Usuário compromete-se a: 1. Manter o sigilo absoluto de suas senhas, tokens e credenciais de acesso, não as compartilhando com terce",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Termos e Condições de Uso.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "er o sigilo absoluto de suas senhas, tokens e credenciais de acesso, não as compartilhando com terceiros. 2. Notificar imediatamente a Tyche Pay sobre qualquer perda, roubo ou suspeita de uso não\n\nautorizado do seu dispositivo móvel ou conta. 3. Utilizar a conta de forma estritamente legal, abstendo-se de praticar ilícitos, lavagem de dinheiro ou financiamento ao terrorismo. 5. Bloqueio Preventivo e Encerramento de Conta A Tyche Pay reserva-se o direito de efetuar o bloqueio cautelar da conta ou o seu encerramento nas seguintes hipóteses: ● Identificação de transações atípicas, suspeitas de fraude ou violação das regras de prevenção à lavagem de dinheiro. ● Inconsistência insanável nas informações cadastrais fornecidas pelo Usuário. ● Descumprimento de qualquer disposição constante destes ",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Termos e Condições de Uso.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "mações cadastrais fornecidas pelo Usuário. ● Descumprimento de qualquer disposição constante destes Termos de Uso. ● Solicitação expressa do Usuário, a qualquer tempo, via canais oficiais de atendimento. 6. Foro e Legislação Aplicável Estes Termos são regidos e interpretados pelas leis da República Federativa do Brasil. Fica eleito o Foro da Comarca da Capital do Estado de São Paulo para dirimir eventuais controvérsias oriundas deste documento.",
+    "metadados": {
+      "arquivo_origem": "Docs\\Legal-e-compliance\\Tyche Pay - Termos e Condições de Uso.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 3,
+      "categoria": "Legal e Compliance",
+      "responsavel": "Rodrigo Andrade (CCO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Perguntas Frequentes (FAQ) - Transações e Limites Central de Ajuda e Dúvidas Frequentes da Tyche Pay 1. Pix e Transferências P1: Quais são os prazos para liquidação de transações Pix e TED na Tyche Pay? R: O Pix é liquidade instantaneamente, 24 horas por dia, 7 dias por semana, inclusive feriados. Já as transferências via TED realizadas em dias úteis até as 17h00 são liquidadas no mesmo dia; após esse horário ou em finais de semana, são processadas no próximo dia útil. P2: Como cadastrar uma chave Pix na minha conta Tyche Pay? R: Acesse a aba Pix no aplicativo Tyche Pay, selecione Cadastrar Chave e escolha entre CPF/CNPJ, e-mail, telefone celular ou chave aleatória. A validação é concluída em poucos segundos. 2. Limites de Transação P3: Quais são os limites padrões de movimentação Pix? R: ",
+    "metadados": {
+      "arquivo_origem": "Docs\\Operational\\Tyche Pay - Perguntas Frequentes (FAQ) sobre Transações e Limites.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Operacional",
+      "responsavel": "Gabriel Mendonça (COO/CXO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "m poucos segundos. 2. Limites de Transação P3: Quais são os limites padrões de movimentação Pix? R: Para a segurança de nossos clientes, os limites operacionais iniciais seguem as diretrizes regulatórias: ● Limite Diurno (06:00 às 20:00): R$ 5.000,00 por transação / acumulado do dia. ● Limite Noturno (20:00 às 06:00): R$ 1.000,00 por transação / acumulado do período. P4: Como posso solicitar o aumento dos meus limites de transação? R: No aplicativo, vá em Perfil > Gerenciar Limites. Escolha o valor desejado para o período diurno ou noturno e confirme com sua senha. Por regulamentação do Banco Central, a solicitação de aumento passa por análise e leva de 24 a 48 horas para ser efetivada. Pedidos de redução de limite são atendidos de forma imediata. 3. Boletos e Pagamentos\n\nP5: Qual é o horá",
+    "metadados": {
+      "arquivo_origem": "Docs\\Operational\\Tyche Pay - Perguntas Frequentes (FAQ) sobre Transações e Limites.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Operacional",
+      "responsavel": "Gabriel Mendonça (COO/CXO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "dos de redução de limite são atendidos de forma imediata. 3. Boletos e Pagamentos\n\nP5: Qual é o horário limite para pagamento de boletos de cobrança e convênios? R: Boletos bancários e contas de consumo (água, luz, telefone) podem ser pagos via aplicativo até as 21:30 de dias úteis para agendamento ou liquidação no mesmo dia. P6: O que fazer caso uma transação não seja concluída, mas o valor tenha sido debitado? R: O sistema de reconciliação automática da Tyche Pay extorna o valor para sua conta em até 30 minutos em caso de instabilidade no sistema destinatário. Se o saldo não retornar após esse prazo, entre em contato via chat no app apresentando o comprovante.",
+    "metadados": {
+      "arquivo_origem": "Docs\\Operational\\Tyche Pay - Perguntas Frequentes (FAQ) sobre Transações e Limites.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Operacional",
+      "responsavel": "Gabriel Mendonça (COO/CXO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Público (client-facing)",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Playbook de Atendimento ao Cliente - Tyche Pay Manual de Resolução Operacional para o Time de Suporte e CX 1. Tom de Voz e Diretrizes de Comunicação Na Tyche Pay, nossa comunicação é empática, transparente, direta e acessível. Evitamos termos burocráticos e buscamos esclarecer as dúvidas do cliente no primeiro contato. 2. Procedimentos Operacionais Padrão (POPs) 2.1 Transações Pix não Concluídas ou Retidas ● Diagnóstico: Verificar no painel operacional se o status da transação está como PENDING, REJECTED ou PROCESSING. ● Procedimento: Se a transação estiver em processamento pelo SPI (Sistema de Pagamentos Instantâneos) do Bacen, oriente o cliente a aguardar até 30 minutos para reconciliação automática. Se for rejeitada por limite ou chave incorreta, esclareça a causa exata. ● Script de Res",
+    "metadados": {
+      "arquivo_origem": "Docs\\Operational\\Tyche Pay - Playbook de Atendimento ao Cliente.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Operacional",
+      "responsavel": "Gabriel Mendonça (COO/CXO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "automática. Se for rejeitada por limite ou chave incorreta, esclareça a causa exata. ● Script de Resposta: \"Olá, [Nome]! Analisei sua transação Pix e identifiquei que ela passou por uma verificação temporária da rede bancária. O valor foi estornado/creditado automaticamente para sua conta. Qualquer dúvida, estou por aqui!\" 2.2 Tratamento de Contestação e Chargeback de Cartões ● Diagnóstico: O cliente relata desconhecer uma compra realizada em seu cartão de débito ou crédito. ● Procedimento: 1. Bloquear imediatamente o cartão do cliente para evitar novas cobranças indevidas. 2. Confirmar com o cliente se não se trata de uma assinatura recorrente ou nome fantasia de estabelecimento. 3. Caso a fraude se confirme, abrir o chamado de contestação junto à bandeira e emitir a 2a via gratuita do ca",
+    "metadados": {
+      "arquivo_origem": "Docs\\Operational\\Tyche Pay - Playbook de Atendimento ao Cliente.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Operacional",
+      "responsavel": "Gabriel Mendonça (COO/CXO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "fraude se confirme, abrir o chamado de contestação junto à bandeira e emitir a 2a via gratuita do cartão. 2.3 Gestão de Bloqueios Cautelares de Segurança ● Diagnóstico: A conta foi bloqueada preventivamente pelo motor antifraude devido a padrão transacional suspeito.\n\n● Procedimento: Explicar ao cliente que a medida visa proteger seu patrimônio. Solicitar confirmação de dados e foto do documento com selfie (KYC pontual) antes de encaminhar a solicitação de desbloqueio para a equipe de Risco Nível 2.",
+    "metadados": {
+      "arquivo_origem": "Docs\\Operational\\Tyche Pay - Playbook de Atendimento ao Cliente.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Operacional",
+      "responsavel": "Gabriel Mendonça (COO/CXO)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Relatório de Auditoria Interna e SLA de Atendimento - Tyche Pay Período de Avaliação: Q2 2026 | Gestão de Qualidade e Operações 1. Resumo Executivo da Auditoria Interna Este relatório apresenta os resultados da avaliação periódica dos processos operacionais, qualidade de atendimento e conformidade de SLAs (Service Level Agreements) da Tyche Pay. No segundo trimestre de 2026, a operação registrou um volume total de 142.500 chamados atendidos nos canais digitais (Chat In-App, E-mail e Oposição/Ouvidoria). 2. Métricas Globais de Suporte e Satisfação Métrica / Indicador Meta Estabelecida Resultado Alcançado (Q2 2026) Status\n\nNet Promoter Score (NPS) > 75 pts 79 pts Dentro da Meta First Contact Resolution (FCR) > 80% 83,5% Dentro da Meta Tempo Médio de Espera (TME) - Chat < 60 seg 42 seg Dentro",
+    "metadados": {
+      "arquivo_origem": "Docs\\Qualidade\\Tyche Pay - Relatório de Auditoria Interna e SLA de Atendimento.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Qualidade",
+      "responsavel": "Gabriel Mendonça (COO/CXO)",
+      "versao": "Q2 2026",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Q2 2026 (ago/2026 — data de emissão do relatório)"
+    }
+  },
+  {
+    "texto": "esolution (FCR) > 80% 83,5% Dentro da Meta Tempo Médio de Espera (TME) - Chat < 60 seg 42 seg Dentro da Meta Tempo Médio de Atendimento (TMA) < 8 min 6 min 45 seg Dentro da Meta Taxa de Abandono (Chat) < 3% 1,8% Dentro da Meta 3. Acordo de Nível de Serviço (SLA) por Severidade ● Nível 1 (Crítico - Indisponibilidade de App/Pix): Resposta inicial em até 5 minutos;\n\nSolução em até 1 hora. SLA cumprido: 99,2%. ● Nível 2 (Alto - Suspeita de Fraude / Bloqueio Cautelar): Resposta inicial em até 15 minutos; Solução em até 4 horas. SLA cumprido: 97,8%. ● Nível 3 (Médio - Dúvidas de Tarifas / Falhas em Boletos): Resposta inicial em até 1 hora; Solução em até 24 horas. SLA cumprido: 98,5%. ● Nível 4 (Baixo - Solicitacao de Segunda Via / Cadastro): Resposta inicial em até 4 horas; Solução em até 48 ho",
+    "metadados": {
+      "arquivo_origem": "Docs\\Qualidade\\Tyche Pay - Relatório de Auditoria Interna e SLA de Atendimento.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Qualidade",
+      "responsavel": "Gabriel Mendonça (COO/CXO)",
+      "versao": "Q2 2026",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Q2 2026 (ago/2026 — data de emissão do relatório)"
+    }
+  },
+  {
+    "texto": "aixo - Solicitacao de Segunda Via / Cadastro): Resposta inicial em até 4 horas; Solução em até 48 horas. SLA cumprido: 99,6%. 4. Planos de Ação e Recomendações da Auditoria 1. Expandir a automação do chatbot para tratamento de dúvidas frequentes sobre bloqueios preventivos no Pix. 2. Realizar treinamento de reciclagem sobre a LGPD e tratamento de dados sensíveis para o time de suporte Nível 1.",
+    "metadados": {
+      "arquivo_origem": "Docs\\Qualidade\\Tyche Pay - Relatório de Auditoria Interna e SLA de Atendimento.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Qualidade",
+      "responsavel": "Gabriel Mendonça (COO/CXO)",
+      "versao": "Q2 2026",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Q2 2026 (ago/2026 — data de emissão do relatório)"
+    }
+  },
+  {
+    "texto": "Manual de Onboarding de Colaboradores - Tyche Pay Guia Boas-Vindas, Integração Operacional e Cultura Organizacional 1. Boas-Vindas à Tyche Pay! Ficamos muito felizes em ter você no nosso time! A Tyche Pay é uma fintech em rápido crescimento que busca transformar o ecossistema financeiro brasileiro com simplicidade, segurança e transparência. Este manual servirá como seu guia de navegação durante suas primeiras semanas conosco. 2. Cronograma do Seu Primeiro Dia ● 09:00 - 10:00: Recepção Virtual / Presencial com o time de Pessoas e Cultura (RH). ● 10:00 - 11:30: Setup de Equipamentos, acessos às ferramentas e configuração de e-mail institucional. ● 11:30 - 12:30: Apresentação da Visão, Missão, Valores e Estrutura Organizacional. ● 12:30 - 14:00: Almoço de Boas-Vindas com a equipe direta. ● 1",
+    "metadados": {
+      "arquivo_origem": "Docs\\RH\\Tyche Pay - Manual de Onboarding de Colaboradores.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Recursos Humanos",
+      "responsavel": "RH (owner nominal a definir — sem C-level de RH no quadro executivo)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": " Valores e Estrutura Organizacional. ● 12:30 - 14:00: Almoço de Boas-Vindas com a equipe direta. ● 14:00 - 16:00: Reunião de alinhamento com a liderança direta e apresentação das metas do trimestre. ● 16:00 - 17:30: Tour virtual pelo ecossistema de documentação (Notion, Slack e Google Workspace). 3. Ferramentas e Sistemas de Acesso Ferramenta Finalidade Como Acessar\n\nGoogle Workspace E-mail, Google Meet, Drive e Agenda Login SSO com e-mail corporativo (@tychepay.com.br) Slack Comunicação interna e canais de projetos Convite enviado para o e-mail no Dia 1\n\nFerramenta Finalidade Como Acessar\n\nJira / Confluence Gestão de projetos, tasks e documentação técnica Acesso concedido pela liderança de TI/Produto 1Password Cofre e gerenciador de senhas corporativas Chave mestre enviada pelo time de TI",
+    "metadados": {
+      "arquivo_origem": "Docs\\RH\\Tyche Pay - Manual de Onboarding de Colaboradores.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Recursos Humanos",
+      "responsavel": "RH (owner nominal a definir — sem C-level de RH no quadro executivo)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "TI/Produto 1Password Cofre e gerenciador de senhas corporativas Chave mestre enviada pelo time de TI 4. Cargos e Trilha de Carreira A Tyche Pay utiliza uma estrutura transparente de cargos dividida em Y-Track (Especialista vs. Gestão): ● Níveis Operacionais / Analistas: Júnior (I), Pleno (II), Sênior (III). ● Trilha de Especialista: Especialista, Tech Lead, Staff Engineer, Principal. ● Trilha de Gestão: Coordenador, Gerente, Diretor, VP, C-Level.",
+    "metadados": {
+      "arquivo_origem": "Docs\\RH\\Tyche Pay - Manual de Onboarding de Colaboradores.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Recursos Humanos",
+      "responsavel": "RH (owner nominal a definir — sem C-level de RH no quadro executivo)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "Política de Benefícios - Tyche Pay Diretrizes para Concessão e Gestão de Benefícios Corporativos 1. Visão Geral Na Tyche Pay, acreditamos que o bem-estar e o desenvolvimento de nossos colaboradores são essenciais para o sucesso contínuo do negócio. Nossa Política de Benefícios engloba um pacote atrativo e flexível voltado para saúde, qualidade de vida e equilíbrio profissional. 2. Benefícios Oferecidos 2.1 Vale Refeição e Vale Alimentação (VR/VA Flexível) A Tyche Pay disponibiliza o benefício via cartão flexível no valor total de R$ 1.400,00 mensais. O colaborador pode redistribuir o saldo entre as categorias Refeição e Alimentação diretamente pelo aplicativo do fornecedor parceiro até o dia 25 de cada mês. 2.2 Plano de Saúde e Odontológico Oferecemos plano de saúde e odontológico de cober",
+    "metadados": {
+      "arquivo_origem": "Docs\\RH\\Tyche Pay - Política de Benefícios.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 0,
+      "categoria": "Recursos Humanos",
+      "responsavel": "RH (owner nominal a definir — sem C-level de RH no quadro executivo)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": " 25 de cada mês. 2.2 Plano de Saúde e Odontológico Oferecemos plano de saúde e odontológico de cobertura nacional (Bradesco Saúde / SulAmérica), na modalidade apartamento, sem coparticipação para o titular. É permitida a inclusão de dependentes diretos (cônjuge e filhos) com subsídio de 50% pela empresa. 2.3 Auxílio Home Office Colaboradores contratados no modelo remoto ou híbrido recebem um auxílio mensal de R$ 300,00 destinado ao custeio de despesas com internet e energia elétrica. 2.4 Day Off de Aniversário No mês do seu aniversário, o colaborador tem direito a 1 (um) dia de folga remunerada. O dia de descanso pode ser gozado na data exata do aniversário ou em qualquer outro dia útil do mesmo mês, mediante alinhamento prévio com a liderança. 2.5 Participação nos Lucros e Resultados (PLR",
+    "metadados": {
+      "arquivo_origem": "Docs\\RH\\Tyche Pay - Política de Benefícios.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 1,
+      "categoria": "Recursos Humanos",
+      "responsavel": "RH (owner nominal a definir — sem C-level de RH no quadro executivo)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  },
+  {
+    "texto": "esmo mês, mediante alinhamento prévio com a liderança. 2.5 Participação nos Lucros e Resultados (PLR) A Tyche Pay possui um programa anual de PLR atrelado ao atingimento das metas globais da\n\nempresa e avaliações de desempenho individuais. O pagamento é realizado anualmente no primeiro trimestre subsequente ao ano de exercício, podendo atingir até 2,5 salários adicionais.",
+    "metadados": {
+      "arquivo_origem": "Docs\\RH\\Tyche Pay - Política de Benefícios.pdf",
+      "localizacao": "Desconhecida",
+      "indice_chunk": 2,
+      "categoria": "Recursos Humanos",
+      "responsavel": "RH (owner nominal a definir — sem C-level de RH no quadro executivo)",
+      "versao": "1.0",
+      "classificacao_acesso": "Interno",
+      "data_atualizacao": "Ago/2026"
+    }
+  }
+]
