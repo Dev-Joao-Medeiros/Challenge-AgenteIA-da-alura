@@ -25,14 +25,14 @@ def filtrar_chunks_validos(chunks: list[dict]) -> list[dict]:
         texto = chunk.get("texto", "")
         metadados = chunk.get("metadados", {})
 
-    origem = metadados.get("caminho_completo") or metadados.get("arquivo de origem") or "origem desconhecida"
+        origem = metadados.get("caminho_completo") or metadados.get("arquivo_origem") or "origem desconhecida"
 
-    if texto and texto.strip():
-        chunks_validos.append(chunk)
-    else:
-        logging.warning(
-            f"Chunk descartado por estar vazio. Origem: {origem} | Índice original: {i}"
-        )
+        if texto and texto.strip():
+            chunks_validos.append(chunk)
+        else:
+            logging.warning(
+                f"Chunk descartado por estar vazio. Origem: {origem} | Índice original: {i}"
+            )
     return chunks_validos
 
 def gerar_id_chunk(metadados: dict, indice_chunk: int) -> str:
@@ -53,15 +53,16 @@ def montar_registros_para_indexacao(
 
     registros = []
 
-    for indice, (chunk, embedding) in enumerate(zip(chunks_validos, embeddings)):
-        id_unico = gerar_id_chunk(chunk["metadados"], indice)
+    for chunk, embedding in zip(chunks_validos, embeddings):
+        indice_real = chunk["metadados"].get("indice_chunk", 0)
+        id_unico = gerar_id_chunk(chunk["metadados"], indice_real)
 
         registros.append({
             "id": id_unico,
             "texto": chunk["texto"],
             "embedding": embedding,
             "metadados": chunk["metadados"]
-        })
+    })
 
     return registros
 
@@ -79,7 +80,7 @@ def indexar_chunks(caminho_chunks_json: str) -> None:
 
         logging.info(f"Gerando embeddings para {len(chunks_validos)} chunks...")
         textos_para_vetorizar = [c["texto"] for c in chunks_validos]
-        embeddings_gerados = gerar_embeddings_em_lote(textos_para_vetorizar, input_type="search_document")
+        embeddings_gerados = gerar_embeddings_em_lote(textos_para_vetorizar)
 
         registros_finais = montar_registros_para_indexacao(chunks_validos, embeddings_gerados)
 

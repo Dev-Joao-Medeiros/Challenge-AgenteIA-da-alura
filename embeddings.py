@@ -27,7 +27,7 @@ def configurar_cliente_embeddings()  ->  cohere.Client:
     _cliente_cohere = cohere.Client(api_key=api_key)
     return _cliente_cohere
 
-def gerar_embedding(texto: str) -> list[float]:
+def gerar_embedding(texto: str, input_type: str = "search_document") -> list[float]:
     if not texto or not texto.strip():
         raise ValueError("O texto fornecido para embedding não pode ser vazio.")
 
@@ -37,7 +37,7 @@ def gerar_embedding(texto: str) -> list[float]:
         resposta = co.embed(
             texts = [texto],
             model=MODELO_EMBEDDING,
-            input_type="search_document",
+            input_type=input_type,
             embedding_types=["float"]
         )
 
@@ -47,8 +47,7 @@ def gerar_embedding(texto: str) -> list[float]:
         print(f"Erro ao gerar embedding: {e}")
         raise e
 
-def gerar_embeddings_em_lote(textos: list[str]) -> list[list[float]]:
-    
+def gerar_embeddings_em_lote(textos: list[str], input_type: str = "search_document") -> list[list[float]]: 
 
     co = configurar_cliente_embeddings()
     todos_embedding = []
@@ -61,7 +60,7 @@ def gerar_embeddings_em_lote(textos: list[str]) -> list[list[float]]:
             resposta = co.embed(
                 texts = lote_atual,
                 model= MODELO_EMBEDDING,
-                input_type = "search_document",
+                input_type=input_type,
                 embedding_types = ["float"]
             )
             todos_embedding.extend(resposta.embeddings.float)
@@ -75,3 +74,11 @@ def gerar_embeddings_em_lote(textos: list[str]) -> list[list[float]]:
             time.sleep(2)
 
     return todos_embedding
+
+def gerar_embedding_pergunta(pergunta: str) -> list[float]:
+    """
+    Função de conveniência para gerar o embedding da pergunta do usuário.
+    Usa automaticamente o input_type='search_query'.
+    """
+    return gerar_embedding(pergunta, input_type="search_query")
+
