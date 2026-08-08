@@ -69,7 +69,7 @@ def recuperar_contexto(
     categoria: str | None = None,
     top_k_inicial: int = TOP_K_BUSCA_INICIAL,
     top_n_final: int = TOP_N_FINAL,
-) -> str:
+) -> tuple[str, list[dict]]:
     logger.info(f"Iniciando recuperação de contexto para a pergunta: '{pergunta}'")
 
     embedding_pergunta = gerar_embedding_pergunta(pergunta)
@@ -91,7 +91,7 @@ def recuperar_contexto(
 
     if total_encontrado == 0: 
         logger.warning("A busca vetorial retornou zero candidatos. Abortando etapa de rerank.")
-        return montar_contexto([])
+        return montar_contexto([]), []
 
     logger.info(f"Executando Cohere Rerank para extrair os top {top_n_final} melhores...")
 
@@ -110,13 +110,13 @@ def recuperar_contexto(
         logger.debug(f" Pos {i}: Score={score:.4f} | Origem={fonte}")
 
     contexto_final = montar_contexto(chunks_relevantes)
-    return contexto_final
+    return contexto_final, chunks_relevantes
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
-    pergunta_teste = "Qual é o horário limite para pagamento de boletos de cobrança e convênios?"
-    contexto = recuperar_contexto(pergunta_teste)
+    pergunta_teste = "qual o contato do RH?"
+    contexto, chunks = recuperar_contexto(pergunta_teste)
     print("\n=== CONTEXTO FINAL PRODUZIDO ===\n")
     print(contexto)
     
