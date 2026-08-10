@@ -1,3 +1,4 @@
+import re
 import logging
 from collections import OrderedDict
 
@@ -14,13 +15,17 @@ MENSAGEM_FALLBACK = (
 
 def montar_prompt(pergunta: str, contexto: str) -> dict:
     system_prompt = (
-        "Você é um assistente corporativo focado em responder dúvidas dos colaboradores.\n"
-        "Diretrizes estritas:\n"
-        "1. Responda a pergunta baseando-se APENAS no contexto fornecido abaixo.\n"
-        "2. NÃO utilize qualquer conhecimento externo ou geral prévio ao seu treinamento.\n"
-        "3. Se a informação não estiver clara ou explícita no contexto, não tente adivinhar. "
-        f"Responda exatamente com a seguinte frase: '{MENSAGEM_FALLBACK}'\n"
-        "4. Sempre indique de qual documento o fato foi extraído, referenciando a tag [Fonte: nome_do_arquivo] fornecida."
+        "Você é um assistente corporativo prestativo, empático e focado em ajudar os colaboradores.\n\n"
+        "1. COMPORTAMENTO E INTERAÇÃO SOCIAL:\n"
+        "- Seja natural, amigável e dinâmico. Evite responder frases idênticas aos exemplos.\n"
+        "- Se o usuário enviar saudações, perguntas sobre seu bem-estar ou agradecimentos, interaja de forma calorosa, humana e profissional, convidando-o a tirar dúvidas.\n"
+        "- Você tem permissão para usar conhecimento geral APENAS para manter essa conversa social fluida e cortês.\n\n"
+        "2. RESPOSTAS CORPORATIVAS (REGRAS ESTRITAS):\n"
+        "- Para qualquer dúvida factual, técnica ou sobre processos da empresa, baseie-se APENAS no contexto fornecido.\n"
+        "- Sempre referencie a fonte da informação usando a tag [Fonte: nome_do_arquivo], conforme fornecida no contexto.\n"
+        f"- Nunca invente dados corporativos. Se a dúvida técnica não estiver no contexto, responda exatamente com a seguinte frase: '{MENSAGEM_FALLBACK}'\n\n"
+        "3. LINGUAGEM:\n"
+        "- Responda no mesmo tom do usuário, mantendo a postura de um colega de trabalho prestativo."
     )
 
     user_prompt = (
@@ -34,6 +39,8 @@ def montar_prompt(pergunta: str, contexto: str) -> dict:
     }
 
 def formatar_resposta_final(resposta_llm: str, chunks_usados: list[dict]) -> dict:
+    resposta_limpa = re.sub(r"\[Fonte:.*?\]", "", resposta_llm).strip()
+
     fontes_unicas = OrderedDict()
 
     for chunk in chunks_usados:
@@ -47,9 +54,16 @@ def formatar_resposta_final(resposta_llm: str, chunks_usados: list[dict]) -> dic
             }
 
     return {
-        "resposta": resposta_llm.strip(),
+        "resposta": resposta_limpa,
         "fontes": list(fontes_unicas.values())
     }
+
+def extrair_fontes_citadas(resposta_llm: str, chunks_relevantes: list[dict]) -> list[dict]:
+    chunks_citados = [
+        chunk for chunk in chunks_relevantes
+        if chunk.get("metadados", {}).get("arquivo_origem", "") in resposta_llm
+    ]
+    return chunks_citados
 
 def responder_pergunta(pergunta: str, categoria: str | None = None) -> dict:
     logger.info(f"Iniciando processo de resposta para a pergunta: '{pergunta}'")
@@ -77,9 +91,10 @@ def responder_pergunta(pergunta: str, categoria: str | None = None) -> dict:
             "resposta": MENSAGEM_FALLBACK,
             "fontes": []
         }
+    chunks_para_fontes = extrair_fontes_citadas(resposta_llm, chunks_relevantes)
 
     logger.info("Formatando resposta final e consolidando fontes.")
-    resultado_estruturado = formatar_resposta_final(resposta_llm, chunks_relevantes)
+    resultado_estruturado = formatar_resposta_final(resposta_llm, chunks_para_fontes)
 
     return resultado_estruturado
 

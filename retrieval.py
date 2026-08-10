@@ -9,18 +9,30 @@ TOP_K_BUSCA_INICIAL = 20
 TOP_N_FINAL = 5 
 
 LIMITE_MAX_CARACTERES_CONTEXTO = 12000
-LIMITE_MINIMO_RELEVANCIA = 0.05
+LIMITE_RELATIVO_AO_MELHOR = 0.15
 
-def filtrar_por_relevancia(chunks_rerankeados: list[dict], limite_minimo: float) -> list[dict]:
+def filtrar_por_relevancia(chunks_rerankeados: list[dict], limite_relativo: float) -> list[dict]:
+    if not chunks_rerankeados:
+        return []
+
+    melhor_score = chunks_rerankeados[0].get("relevance_score", 0.0)
+
+    if melhor_score <= 0:
+        logger.info("Melhor score é zero ou negativo. Nenhum chunk considerado relevante.")
+        return []
+
+    limite_absoluto_calculado = melhor_score * limite_relativo
+
     chunks_relevantes = [
         chunk for chunk in chunks_rerankeados
-        if chunk.get("relevance_score", 0.0) >= limite_minimo
+        if chunk.get("relevance_score", 0.0) >= limite_absoluto_calculado
     ]
 
     descartados = len(chunks_rerankeados) - len(chunks_relevantes)
     if descartados > 0:
         logger.info(
-            f"{descartados} chunk(s) descartado(s) por relevância abaixo de {limite_minimo}."
+            f"{descartados} chunk(s) descartado(s) por relevância abaixo de "
+            f"{limite_relativo:.0%} do melhor score ({melhor_score:.4f})."
         )
 
     return chunks_relevantes
@@ -101,7 +113,7 @@ def recuperar_contexto(
         top_n=top_n_final
     )
 
-    chunks_relevantes = filtrar_por_relevancia(chunks_rerankeados, LIMITE_MINIMO_RELEVANCIA)
+    chunks_relevantes = filtrar_por_relevancia(chunks_rerankeados, LIMITE_RELATIVO_AO_MELHOR)
 
     logger.info(f"Rerank concluído. {len(chunks_relevantes)} de {len(chunks_rerankeados)} chunks passaram no corte de relevância.")
     for i, chunk in enumerate(chunks_rerankeados, start=1):
