@@ -13,6 +13,20 @@ MENSAGEM_FALLBACK = (
     "(RH, Financeiro, Jurídico, conforme o assunto)."
 )
 
+PADROES_SOCIAIS = [
+    r"^oi\b", r"^ol[áa]\b", r"^bom dia\b", r"^boa tarde\b", r"^boa noite\b",
+    r"^tudo bem", r"^como vai", r"^obrigad[oa]", r"^valeu\b", r"^tchau\b",
+    r"^at[ée] mais\b", r"^até logo\b",
+]
+
+def parece_social(pergunta: str) -> bool:
+    pergunta_normalizada = pergunta.strip().lower()
+
+    if len(pergunta_normalizada.split()) > 6:
+        return False
+
+    return any(re.match(padrao, pergunta_normalizada) for padrao in PADROES_SOCIAIS)
+
 def montar_prompt(pergunta: str, contexto: str) -> dict:
     system_prompt = (
         "Você é um assistente corporativo prestativo, empático e focado em ajudar os colaboradores.\n\n"
@@ -67,6 +81,14 @@ def extrair_fontes_citadas(resposta_llm: str, chunks_relevantes: list[dict]) -> 
 
 def responder_pergunta(pergunta: str, categoria: str | None = None) -> dict:
     logger.info(f"Iniciando processo de resposta para a pergunta: '{pergunta}'")
+
+    if parece_social(pergunta):
+        logger.info("Pergunta identificada como social -- pulando busca de contexto.")
+        prompt_social =montar_prompt(pergunta, contexto="(nenhum documento consultado -- interação social)")
+        prompt_final_string = f"{prompt_social['system']}\n\n{prompt_social['user']}"
+        resposta_llm = gerar_resposta_llm(prompt_final_string)
+        return {"resposta": resposta_llm.strip(), "fontes": []}
+
 
     contexto_str, chunks_relevantes = recuperar_contexto(pergunta, categoria)
 

@@ -1,45 +1,22 @@
-# ==========================================================
-# Requirements - Projeto de Extração e Processamento de Documentos
-# ==========================================================
+# === Etapa 2: Processamento e extração de conteúdo ===
+pypdf
+PyMuPDF
+pdf2image
+pytesseract
+python-docx
+pandas
+tabulate
+openpyxl
 
-# --------------------------
-# Extração de PDF
-# --------------------------
-pypdf>=6.0.0
-pdfplumber>=0.11.7
-PyMuPDF>=1.26.3
-pytesseract>=0.3.13
+# === Etapa 3: Indexação vetorial (embeddings + banco vetorial) ===
+cohere
+chromadb
 
-# --------------------------
-# Extração de Word
-# --------------------------
-python-docx>=1.2.0
+# === Etapa 4/5: Recuperação e geração de resposta (LLM) ===
+groq
+python-dotenv
 
-# --------------------------
-# Extração de Excel e CSV
-# --------------------------
-openpyxl>=3.1.5
-pandas>=2.3.2
-
-# --------------------------
-# Extração de PowerPoint
-# --------------------------
-python-pptx>=1.0.2
-
-# --------------------------
-# Markdown
-# --------------------------
-markdown>=3.8.2
-markdown-it-py>=4.0.0
-
-# --------------------------
-# HTML
-# --------------------------
-beautifulsoup4>=4.13.5
-lxml>=6.0.0
-
-# --------------------------
-# Chunking
-# --------------------------
-langchain>=0.3.27
-tiktoken>=0.11.0
+# === Etapa 6: Interface web (API + servidor) ===
+fastapi
+uvicorn
+pydantic

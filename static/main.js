@@ -3,7 +3,26 @@ const API_BASE_URL = "";
 const form = document.getElementById("form-pergunta");
 const input = document.getElementById("input-pergunta");
 const historico = document.getElementById("historico");
-const chatWrapper = document.getElementById("chat-wrapper"); // Referência adicionada
+const listaConversas = document.getElementById("lista-conversas");
+const btnNovaConversa = document.getElementById("btn-nova-conversa");
+const chatWrapper = document.querySelector(".chat-wrapper");
+
+let idConversaAtual = null;
+
+// ---------- Inicialização ----------
+
+carregarListaConversas();
+atualizarEstadoVisualDaConversa();
+
+btnNovaConversa.addEventListener("click", () => {
+    idConversaAtual = null;
+    historico.innerHTML = "";
+    marcarConversaAtivaNaLista(null);
+    atualizarEstadoVisualDaConversa();
+    input.focus();
+});
+
+// ---------- Envio de pergunta ----------
 
 form.addEventListener("submit", async (evento) => {
     evento.preventDefault();
@@ -11,22 +30,24 @@ form.addEventListener("submit", async (evento) => {
     const pergunta = input.value.trim();
     if (!pergunta) return;
 
-    // Transição: Remove a tela de boas-vindas e move o título para o topo
-    if (chatWrapper.classList.contains("novo-chat")) {
-        chatWrapper.classList.remove("novo-chat");
-    }
-
     adicionarMensagemUsuario(pergunta);
+    atualizarEstadoVisualDaConversa();
     input.value = "";
     input.disabled = true;
 
     const indicadorCarregando = adicionarIndicadorCarregando();
 
     try {
+        if (!idConversaAtual) {
+            idConversaAtual = await criarNovaConversa(pergunta);
+            await carregarListaConversas();
+            marcarConversaAtivaNaLista(idConversaAtual);
+        }
+
         const resposta = await fetch(`${API_BASE_URL}/api/perguntar`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ pergunta }),
+            body: JSON.stringify({ pergunta, id_conversa: idConversaAtual }),
         });
 
         if (!resposta.ok) {
@@ -36,6 +57,7 @@ form.addEventListener("submit", async (evento) => {
         const dados = await resposta.json();
         indicadorCarregando.remove();
         adicionarMensagemAgente(pergunta, dados.resposta, dados.fontes || []);
+        atualizarEstadoVisualDaConversa();
     } catch (erro) {
         indicadorCarregando.remove();
         adicionarMensagemAgente(
@@ -50,9 +72,83 @@ form.addEventListener("submit", async (evento) => {
     }
 });
 
+async function criarNovaConversa(pergunta) {
+    try {
+        const resultado = await fetch(`${API_BASE_URL}/api/conversas`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ primeira_pergunta: pergunta }),
+        });
+        const dados = await resultado.json();
+        return dados.id;
+    } catch (erro) {
+        console.error("Erro ao criar conversa:", erro);
+        throw erro;
+    }
+}
+
+// ---------- Sidebar de conversas ----------
+
+async function carregarListaConversas() {
+    try {
+        const resposta = await fetch(`${API_BASE_URL}/api/conversas`);
+        const conversas = await resposta.json();
+
+        listaConversas.innerHTML = "";
+
+        if (conversas.length === 0) {
+            listaConversas.innerHTML = '<div class="vazio">Nenhuma conversa salva ainda.</div>';
+            return;
+        }
+
+        conversas.forEach((conversa) => {
+            const item = document.createElement("div");
+            item.className = "item-conversa";
+            item.textContent = conversa.titulo;
+            item.dataset.id = conversa.id;
+            item.addEventListener("click", () => abrirConversa(conversa.id));
+            listaConversas.appendChild(item);
+        });
+
+        marcarConversaAtivaNaLista(idConversaAtual);
+    } catch (erro) {
+        console.error("Erro ao carregar lista de conversas:", erro);
+    }
+}
+
+function marcarConversaAtivaNaLista(id) {
+    document.querySelectorAll(".item-conversa").forEach((el) => {
+        el.classList.toggle("ativa", el.dataset.id === id);
+    });
+}
+
+async function abrirConversa(id) {
+    try {
+        const resposta = await fetch(`${API_BASE_URL}/api/conversas/${id}`);
+        if (!resposta.ok) throw new Error("Conversa não encontrada");
+
+        const conversa = await resposta.json();
+        idConversaAtual = id;
+        historico.innerHTML = "";
+
+        conversa.mensagens.forEach((msg) => {
+            if (msg.papel === "usuario") {
+                adicionarMensagemUsuario(msg.texto);
+            } else {
+                adicionarMensagemAgente(null, msg.texto, msg.fontes || []);
+            }
+        });
+
+        marcarConversaAtivaNaLista(id);
+        atualizarEstadoVisualDaConversa();
+    } catch (erro) {
+        console.error("Erro ao abrir conversa:", erro);
+    }
+}
+
+// ---------- Renderização de mensagens ----------
+
 function formatarMarkdownSimples(texto) {
-    // Converte negrito (**texto**) em <strong>, e escapa o resto para
-    // evitar que HTML acidental no texto quebre a página.
     const escapado = texto
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -60,7 +156,6 @@ function formatarMarkdownSimples(texto) {
 
     return escapado.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 }
-
 
 function adicionarMensagemUsuario(texto) {
     const div = document.createElement("div");
@@ -92,47 +187,50 @@ function adicionarMensagemAgente(pergunta, texto, fontes) {
         blocoFontes.className = "fontes";
         blocoFontes.innerHTML =
             "<strong>Fontes consultadas:</strong><ul>" +
-            fontes
-                .map((f) => `<li>${f.arquivo} (${f.categoria})</li>`)
-                .join("") +
+            fontes.map((f) => `<li>${f.arquivo} (${f.categoria})</li>`).join("") +
             "</ul>";
         container.appendChild(blocoFontes);
     }
 
-    const blocoFeedback = document.createElement("div");
-    blocoFeedback.className = "feedback";
+    // Feedback só faz sentido em mensagens recém-geradas (com a
+    // pergunta original disponível); ao reabrir uma conversa salva,
+    // omitimos os botões para simplificar.
+    if (pergunta) {
+        const blocoFeedback = document.createElement("div");
+        blocoFeedback.className = "feedback";
 
-    const botaoPositivo = document.createElement("button");
-    botaoPositivo.textContent = "👍";
-    const botaoNegativo = document.createElement("button");
-    botaoNegativo.textContent = "👎";
+        const botaoPositivo = document.createElement("button");
+        botaoPositivo.textContent = "👍 Útil";
+        const botaoNegativo = document.createElement("button");
+        botaoNegativo.textContent = "👎 Não útil";
 
-    const enviarFeedback = async (avaliacao, botaoClicado, botaoOutro) => {
-        botaoClicado.classList.add("selecionado");
-        botaoOutro.disabled = true;
-        botaoClicado.disabled = true;
+        const enviarFeedback = async (avaliacao, botaoClicado, botaoOutro) => {
+            botaoClicado.classList.add("selecionado");
+            botaoOutro.disabled = true;
+            botaoClicado.disabled = true;
 
-        try {
-            await fetch(`${API_BASE_URL}/api/feedback`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ pergunta, resposta: texto, avaliacao, fontes }),
-            });
-        } catch (erro) {
-            console.error("Erro ao enviar feedback:", erro);
-        }
-    };
+            try {
+                await fetch(`${API_BASE_URL}/api/feedback`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ pergunta, resposta: texto, avaliacao, fontes }),
+                });
+            } catch (erro) {
+                console.error("Erro ao enviar feedback:", erro);
+            }
+        };
 
-    botaoPositivo.addEventListener("click", () =>
-        enviarFeedback("positivo", botaoPositivo, botaoNegativo)
-    );
-    botaoNegativo.addEventListener("click", () =>
-        enviarFeedback("negativo", botaoNegativo, botaoPositivo)
-    );
+        botaoPositivo.addEventListener("click", () =>
+            enviarFeedback("positivo", botaoPositivo, botaoNegativo)
+        );
+        botaoNegativo.addEventListener("click", () =>
+            enviarFeedback("negativo", botaoNegativo, botaoPositivo)
+        );
 
-    blocoFeedback.appendChild(botaoPositivo);
-    blocoFeedback.appendChild(botaoNegativo);
-    container.appendChild(blocoFeedback);
+        blocoFeedback.appendChild(botaoPositivo);
+        blocoFeedback.appendChild(botaoNegativo);
+        container.appendChild(blocoFeedback);
+    }
 
     historico.appendChild(container);
     rolarParaBaixo();
@@ -140,4 +238,8 @@ function adicionarMensagemAgente(pergunta, texto, fontes) {
 
 function rolarParaBaixo() {
     historico.scrollTop = historico.scrollHeight;
+}
+
+function atualizarEstadoVisualDaConversa() {
+    chatWrapper.classList.toggle("tem-mensagens", historico.children.length > 0);
 }

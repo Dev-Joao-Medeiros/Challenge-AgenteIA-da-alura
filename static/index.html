@@ -5,45 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tyche Pay — Assistente Virtual</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
-    <!-- Estado 'novo-chat' ativado por padrão -->
-    <div id="chat-wrapper" class="chat-wrapper novo-chat">
+    <div class="app-layout">
+        <aside class="sidebar">
+            <button id="btn-nova-conversa" class="btn-nova-conversa">+ Nova conversa</button>
+            <div id="lista-conversas" class="lista-conversas"></div>
+        </aside>
 
-        <header class="chat-header">
-            <div class="logo-area">
-                <div class="sparkle-icon">🤖</div>
-                <h1>Tyche Pay</h1>
-            </div>
-            <div class="welcome-text">
-                <h2>Como posso ajudar você hoje?</h2>
-            </div>
-        </header>
+        <main class="chat-wrapper">
+            <header class="chat-header">
+                <h1>🤖 Tyche Pay — Assistente Virtual</h1>
+            </header>
 
-        <main id="historico" class="historico"></main>
+            <div id="historico" class="historico"></div>
 
-        <footer class="input-container">
             <form id="form-pergunta" class="form-pergunta">
-                <input type="text" id="input-pergunta" placeholder="Pergunte qualquer coisa sobre os documentos..."
-                    autocomplete="off" required />
-                <button type="submit" aria-label="Enviar">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="12" y1="19" x2="12" y2="5"></line>
-                        <polyline points="5 12 12 5 19 12"></polyline>
-                    </svg>
-                </button>
+                <input type="text" id="input-pergunta" placeholder="Digite sua pergunta..." autocomplete="off"
+                    required />
+                <button type="submit">Enviar</button>
             </form>
-            <p class="disclaimer">
-                🤖 Respostas geradas por Inteligência Artificial com base nos documentos internos da empresa.
-            </p>
-        </footer>
 
+            <p class="disclaimer disclaimer-rodape">
+                Você está conversando com um agente de <strong>Inteligência Artificial</strong>,
+                não com uma pessoa. As respostas são baseadas nos documentos internos da empresa.
+            </p>
+        </main>
     </div>
 
     <script src="/static/main.js"></script>

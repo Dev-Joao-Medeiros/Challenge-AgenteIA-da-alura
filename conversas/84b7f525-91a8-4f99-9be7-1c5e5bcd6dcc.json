@@ -1,0 +1,17 @@
+{
+    "id": "84b7f525-91a8-4f99-9be7-1c5e5bcd6dcc",
+    "titulo": "oi, tudo bom?",
+    "criado_em": "2026-08-11T08:23:17.566713",
+    "atualizado_em": "2026-08-11T08:23:22.725528",
+    "mensagens": [
+        {
+            "papel": "usuario",
+            "texto": "oi, tudo bom?"
+        },
+        {
+            "papel": "agente",
+            "texto": "Oi! Tudo ótimo por aqui, e você? Como posso ajudar hoje?",
+            "fontes": []
+        }
+    ]
+}
