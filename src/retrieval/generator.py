@@ -2,8 +2,8 @@ import re
 import logging
 from collections import OrderedDict
 
-from llm import gerar_resposta_llm
-from retrieval import recuperar_contexto
+from src.generation.llm.llm import gerar_resposta_llm
+from src.retrieval.retrieval import recuperar_contexto
 
 logger = logging.getLogger(__name__)
 

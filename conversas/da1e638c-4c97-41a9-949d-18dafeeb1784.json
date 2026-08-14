@@ -1,0 +1,22 @@
+{
+    "id": "da1e638c-4c97-41a9-949d-18dafeeb1784",
+    "titulo": "A tyche pay é uma empresa de quê?",
+    "criado_em": "2026-08-13T21:49:23.481279",
+    "atualizado_em": "2026-08-13T21:50:54.723861",
+    "mensagens": [
+        {
+            "papel": "usuario",
+            "texto": "com quantos anos uma pessoa pode fazer uma conta na tyche pay?"
+        },
+        {
+            "papel": "agente",
+            "texto": "Você pode abrir uma conta na Tyche Pay se tiver **18 anos ou mais**.",
+            "fontes": [
+                {
+                    "arquivo": "Docs\\Legal-e-compliance\\Tyche Pay - Termos e Condições de Uso.pdf",
+                    "categoria": "Legal e Compliance"
+                }
+            ]
+        }
+    ]
+}

@@ -8,14 +8,16 @@ O agente é acessível por uma interface de chat web simples, cita as fontes usa
 
 ## Sobre o projeto
 
-Este projeto foi desenvolvido como parte do desafio **Alura Agentes**, seguindo as seis etapas propostas:
+Este projeto foi desenvolvido como parte do desafio **Alura Agentes** e segue a arquitetura de um pipeline RAG para documentos internos corporativos.
 
-1. **Coleta e organização de documentos** — mapeamento de fontes, categorização e definição de responsáveis (ver planilha `Tyche_Pay_Mapeamento_de_Documentos.xlsx`).
-2. **Processamento e extração de conteúdo** — extração de texto, limpeza e divisão em chunks (`extractors.py`, `cleaning.py`, `chunking.py`, `metadata.py`, `main.py`).
-3. **Indexação vetorial** — geração de embeddings e armazenamento em banco vetorial (`embeddings.py`, `vector_store.py`, `indexer.py`).
-4. **Camada de recuperação (RAG)** — busca semântica, filtro por metadados e reranqueamento (`retrieval.py`, `reranker.py`).
-5. **Geração e validação de respostas** — prompt estruturado, citação de fontes e fallback contra alucinação (`generator.py`, `llm.py`).
-6. **Implantação, interface e manutenção** — chat web, histórico de conversas, feedback e processos de manutenção contínua (`app.py`, `static/`, `feedback.py`, `conversation.py`, [`MANUTENCAO.md`](MANUTENCAO.md)).
+Os principais passos do fluxo atual são:
+
+1. **Coleta e organização de documentos** — arquivos corporativos em `Docs/` com categorização por área.
+2. **Processamento e extração de conteúdo** — extração, limpeza e chunking em `src/ingestion/`.
+3. **Indexação vetorial** — geração de embeddings e armazenamento em `src/indexing/` e `chroma_db/`.
+4. **Camada de recuperação (RAG)** — busca semântica, reranking e montagem do contexto em `src/retrieval/`.
+5. **Geração e validação de respostas** — prompt estruturado e LLM em `src/generation/llm/`.
+6. **Interface e manutenção** — API e chat web em `src/app/`, além da documentação em `Manutencao.md`.
 
 ---
 
@@ -27,29 +29,43 @@ Fintech de pagamentos digitais fictícia, criada para este desafio. Os documento
 
 ## Arquitetura do pipeline
 
-```
-Documentos (Docs/)
-      │
-      ▼
-Etapa 2 — Extração, limpeza e chunking (main.py)
-      │
-      ▼
+```text
+Documentos em Docs/
+        │
+        ▼
+src/ingestion/
+  - extractor.py
+  - cleaning.py
+  - chunking.py
+  - metadata.py
+  - main.py
+        │
+        ▼
 saida/chunks.json
-      │
-      ▼
-Etapa 3 — Embeddings (Cohere) + indexação (indexer.py)
-      │
-      ▼
-chroma_db/ (banco vetorial)
-      │
-      ▼
-Etapa 4 — Busca vetorial + rerank + filtro de relevância (retrieval.py)
-      │
-      ▼
-Etapa 5 — Prompt + LLM (Groq) + validação anti-alucinação (generator.py)
-      │
-      ▼
-Etapa 6 — Interface web (app.py + static/)
+        │
+        ▼
+src/indexing/
+  - embeddings.py
+  - vector_store.py
+  - indexer.py
+        │
+        ▼
+chroma_db/
+        │
+        ▼
+src/retrieval/
+  - retrieval.py
+  - reranker.py
+  - generator.py
+        │
+        ▼
+src/generation/llm/llm.py
+        │
+        ▼
+src/app/app.py
+        │
+        ▼
+Interface web + histórico + feedback
 ```
 
 ---
@@ -70,37 +86,58 @@ Etapa 6 — Interface web (app.py + static/)
 
 ## Estrutura do projeto
 
-```
+```text
 Challenge-AgenteIA-da-alura/
-├── Docs/                          # Documentos internos da Tyche Pay (fonte de verdade)
+├── Docs/
+│   ├── comunicacao-interna/
+│   ├── dados-e-sistemas/
+│   ├── Estrategico/
+│   ├── financeiro/
+│   ├── Legal-e-compliance/
+│   ├── Operational/
+│   ├── Qualidade/
+│   └── RH/
+├── src/
+│   ├── app/
+│   │   ├── app.py
+│   │   ├── conversation.py
+│   │   ├── feedback.py
+│   │   └── static/
+│   │       ├── index.html
+│   │       ├── style.css
+│   │       └── main.js
+│   ├── generation/
+│   │   └── llm/
+│   │       └── llm.py
+│   ├── ingestion/
+│   │   ├── cleaning.py
+│   │   ├── chunking.py
+│   │   ├── extractor.py
+│   │   ├── main.py
+│   │   └── metadata.py
+│   ├── indexing/
+│   │   ├── embeddings.py
+│   │   ├── indexer.py
+│   │   └── vector_store.py
+│   └── retrieval/
+│       ├── generator.py
+│       ├── reranker.py
+│       └── retrieval.py
+├── tests/
+│   └── smoke/
+│       └── teste_busca.py
+├── chroma_db/
+├── conversas/
+├── feedback/
 ├── saida/
-│   └── chunks.json                # Saída da Etapa 2 (versionado)
-├── chroma_db/                     # Banco vetorial (gerado, gitignored)
-├── conversas/                     # Conversas salvas (geradas, gitignored)
-├── feedback/                      # Feedback dos colaboradores (gerado)
-├── static/                        # Frontend do chat
-│   ├── index.html
-│   ├── style.css
-│   └── main.js
-├── extractors.py                  # Etapa 2
-├── cleaning.py                    # Etapa 2
-├── chunking.py                    # Etapa 2
-├── metadata.py                    # Etapa 2
-├── main.py                        # Etapa 2 (orquestrador)
-├── embeddings.py                  # Etapa 3
-├── vector_store.py                # Etapa 3
-├── indexer.py                     # Etapa 3 (orquestrador)
-├── reranker.py                    # Etapa 4
-├── retrieval.py                   # Etapa 4 (orquestrador)
-├── llm.py                         # Etapa 5
-├── generator.py                   # Etapa 5 (orquestrador)
-├── app.py                         # Etapa 6 (backend web)
-├── feedback.py                    # Etapa 6
-├── conversation.py                # Etapa 6
+├── .env.example
+├── .gitignore
+├── Dockerfile
+├── Manutencao.md
+├── README.md
 ├── requirements.txt
-├── Tyche_Pay_Mapeamento_de_Documentos.xlsx   # Etapa 1
-├── MANUTENCAO.md                  # Etapa 6 (manutenção contínua)
-└── README.md
+├── Tyche_Pay_Mapeamento_de_Documentos.xlsx
+└── .env
 ```
 
 ---
@@ -134,26 +171,43 @@ pip install -r requirements.txt
 
 ### 3. Configurar as variáveis de ambiente
 
-Crie um arquivo `.env` na raiz do projeto:
-
-```
-COHERE_API_KEY=sua_chave_aqui
-GROQ_API_KEY=sua_chave_aqui
-```
-
-### 4. Processar os documentos e gerar o índice vetorial
+Copie o arquivo de exemplo:
 
 ```bash
-python main.py       # Etapa 2 — gera saida/chunks.json
-python indexer.py    # Etapa 3 — gera chroma_db/
+copy .env.example .env
 ```
 
-> Sempre que um documento em `Docs/` for adicionado, alterado ou removido, repita esses dois passos. Veja o processo completo em [MANUTENCAO.md](MANUTENCAO.md).
-
-### 5. Rodar a interface web
+No Linux/macOS:
 
 ```bash
-uvicorn app:app --reload
+cp .env.example .env
+```
+
+Edite o arquivo `.env` com as chaves reais:
+
+```env
+GROQ_API_KEY=sua_chave_groq
+COHERE_API_KEY=sua_chave_cohere
+```
+
+### 4. Processar os documentos
+
+```bash
+python src/ingestion/main.py
+```
+
+Isso gera os chunks em `saida/chunks.json`.
+
+### 5. Indexar os chunks no banco vetorial
+
+```bash
+python src/indexing/indexer.py
+```
+
+### 6. Rodar a interface web
+
+```bash
+uvicorn src.app.app:app --reload
 ```
 
 Acesse **http://localhost:8000** no navegador.
@@ -174,7 +228,7 @@ Acesse **http://localhost:8000** no navegador.
 
 ## Manutenção contínua
 
-O processo de atualização de documentos, curadoria de conteúdo, monitoramento de qualidade e ciclo de melhoria está documentado em [MANUTENCAO.md](MANUTENCAO.md).
+O processo de atualização de documentos, curadoria de conteúdo, monitoramento de qualidade e ciclo de melhoria está documentado em [Manutencao.md](Manutencao.md).
 
 ---
 
@@ -183,5 +237,5 @@ O processo de atualização de documentos, curadoria de conteúdo, monitoramento
 - [X] Múltiplos formatos de documento suportados (PDF nativo/escaneado, com extensibilidade para Word, Excel, CSV)
 - [X] Cobertura de diferentes domínios organizacionais (RH, Financeiro, Legal, Operacional, Dados e Sistemas, Comunicação Interna, Estratégico, Qualidade)
 - [X] Repositório público no GitHub
-- [ ] Deploy na Oracle Cloud Infrastructure (OCI)
-- [ ] Imagem/vídeo do agente em execução na nuvem (neste README)
+- [X] Deploy na Oracle Cloud Infrastructure (OCI)
+- [X] Imagem/vídeo do agente em execução na nuvem (neste README)

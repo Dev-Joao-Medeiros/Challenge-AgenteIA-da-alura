@@ -1,10 +1,10 @@
 import json
 from pathlib import Path
 
-from extractor import extrair, EXTRATORES_POR_EXTENSAO
-from cleaning import limpar_texto
-from chunking import chunk_texto
-from metadata import carregar_metadados_catalogo, montar_metadados_chunk
+from src.ingestion.extractor import extrair, EXTRATORES_POR_EXTENSAO
+from src.ingestion.cleaning import limpar_texto
+from src.ingestion.chunking import chunk_texto
+from src.ingestion.metadata import carregar_metadados_catalogo, montar_metadados_chunk
 
 
 def processar_documento(

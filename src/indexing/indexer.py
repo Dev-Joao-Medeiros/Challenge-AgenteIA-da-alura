@@ -4,8 +4,8 @@ from pathlib import Path
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-from embeddings import gerar_embeddings_em_lote
-from vector_store import obter_colecao, adicionar_chunks
+from src.indexing.embeddings import gerar_embeddings_em_lote
+from src.indexing.vector_store import obter_colecao, adicionar_chunks
 
 def carregar_chunks(caminho_chunks_json: str) -> list[dict]:
     caminho = Path(caminho_chunks_json)

@@ -1,5 +1,5 @@
-from embeddings import gerar_embedding
-from vector_store import obter_colecao, buscar
+from src.indexing.embeddings import gerar_embedding
+from src.indexing.vector_store import obter_colecao, buscar
 
 pergunta = "Qual o cronograma do primeiro dia de trabalho?"
 embedding_pergunta = gerar_embedding(pergunta)

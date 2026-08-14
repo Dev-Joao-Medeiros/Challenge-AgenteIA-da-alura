@@ -1,7 +1,7 @@
 import logging
-from embeddings import gerar_embedding_pergunta
-from vector_store import obter_colecao, buscar
-from reranker import reranquear
+from src.indexing.embeddings import gerar_embedding_pergunta
+from src.indexing.vector_store import obter_colecao, buscar
+from src.retrieval.reranker import reranquear
 
 logger = logging.getLogger(__name__)
 

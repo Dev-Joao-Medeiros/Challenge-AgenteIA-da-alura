@@ -1,0 +1,22 @@
+{
+    "id": "c6ee9f5b-507f-4978-ac2b-88aa6d350007",
+    "titulo": "Qual o contato do RH?",
+    "criado_em": "2026-08-13T21:38:23.314487",
+    "atualizado_em": "2026-08-13T21:38:29.006262",
+    "mensagens": [
+        {
+            "papel": "usuario",
+            "texto": "Qual o contato do RH?"
+        },
+        {
+            "papel": "agente",
+            "texto": "O contato do RH é:\n\n- **E‑mail:** rh@tychepay.com.br  \n- **Telefone / Ramal:** (11) 3003‑9107 (Ramal 107)  \n- **Responsável:** Juliana Martins, Head de RH",
+            "fontes": [
+                {
+                    "arquivo": "Docs\\comunicacao-interna\\Tyche Pay - Diretório de Contatos Internos e Responsáveis por Área.pdf",
+                    "categoria": "Comunicação Interna"
+                }
+            ]
+        }
+    ]
+}

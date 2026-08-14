@@ -6,10 +6,10 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from generator import responder_pergunta
-from feedback import registrar_feedback
+from src.retrieval.generator import responder_pergunta
+from src.app.feedback import registrar_feedback
 
-from conversation import criar_conversa, adicionar_mensagem, listar_conversas, carregar_conversa
+from src.app.conversation import criar_conversa, adicionar_mensagem, listar_conversas, carregar_conversa
 
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
