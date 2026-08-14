@@ -1,0 +1,22 @@
+{
+    "id": "f856a364-f622-4f9f-8077-1b2ee7ceafe5",
+    "titulo": "Oi, tudo bem? Qual o responsavel pelo de...",
+    "criado_em": "2026-08-13T22:42:05.131211",
+    "atualizado_em": "2026-08-13T22:42:11.026721",
+    "mensagens": [
+        {
+            "papel": "usuario",
+            "texto": "Oi, tudo bem? Qual o responsavel pelo departamento financeiro?"
+        },
+        {
+            "papel": "agente",
+            "texto": "Oi! Tudo ótimo, e você? 😊 O responsável pelo departamento financeiro é a **Mariana Costa**, que ocupa o cargo de Chief Financial Officer (CFO). Ela cuida do planejamento financeiro, contabilidade, gestão de riscos e tesouraria.",
+            "fontes": [
+                {
+                    "arquivo": "Docs\\Estrategico\\Tyche Pay - Apresentação Institucional.pdf",
+                    "categoria": "Estratégico"
+                }
+            ]
+        }
+    ]
+}
