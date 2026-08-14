@@ -242,6 +242,10 @@ Acesse **http://localhost:8000** no navegador.
   <img src="https://github.com/user-attachments/assets/e5984916-18c1-41c4-9191-c1cb0bb1f63b" width="45%" alt="conversa" />
 </div>
 
+## Vídeo do projeto funcionando
+
+[Vídeo Tyche Pay](https://drive.google.com/file/d/161Mraa9WyyG0bqy0KVHeLIReZNYCJt57/view?usp=drive_link)
+
 ## Arquitetura de deploy na OCI
  
 O deploy foi feito na abordagem mais simples possível dentre as sugeridas
