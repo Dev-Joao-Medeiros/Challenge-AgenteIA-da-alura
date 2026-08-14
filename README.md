@@ -99,6 +99,10 @@ Challenge-AgenteIA-da-alura/
 │   ├── Operational/
 │   ├── Qualidade/
 │   └── RH/
+├── docs_ref/
+│   ├── DEPLOY_OCI.md
+│   ├── DEPLOY_OCI_AVANCADO_referencia.md
+│   └── Manutencao.md
 ├── src/
 │   ├── app/
 │   │   ├── app.py

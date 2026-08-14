@@ -16,9 +16,10 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(title="Tyche Pay - Agente de IA Corporativo")
 
-STATIC_DIR = Path("static")
+BASE_DIR = Path(__file__).resolve().parent
+STATIC_DIR = BASE_DIR / "static"
 if STATIC_DIR.exists():
-    app.mount("/static", StaticFiles(directory="static"), name="static")
+    app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
 class PerguntaRequest(BaseModel):
     pergunta: str

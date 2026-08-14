@@ -1,0 +1,31 @@
+{
+    "id": "be0f284e-6bf5-44b3-b8a2-ccf5acc26aca",
+    "titulo": "Bom dia. Queria informações sobre a API.",
+    "criado_em": "2026-08-14T08:32:09.366746",
+    "atualizado_em": "2026-08-14T08:32:36.776801",
+    "mensagens": [
+        {
+            "papel": "usuario",
+            "texto": "Bom dia. Queria informações sobre a API."
+        },
+        {
+            "papel": "agente",
+            "texto": "Não encontrei essa informação nos documentos disponíveis. Para dúvidas desse tipo, entre em contato com a área responsável (RH, Financeiro, Jurídico, conforme o assunto).",
+            "fontes": []
+        },
+        {
+            "papel": "usuario",
+            "texto": "qual o contato do departamento financeiro"
+        },
+        {
+            "papel": "agente",
+            "texto": "O contato do Departamento Financeiro é:\n\n- **E‑mail:** financeiro@tychepay.com.br  \n- **Telefone:** (11) 3003‑9105 (dias úteis, das 09h às 18h)",
+            "fontes": [
+                {
+                    "arquivo": "Docs\\comunicacao-interna\\Tyche Pay - Diretório de Contatos Internos e Responsáveis por Área.pdf",
+                    "categoria": "Comunicação Interna"
+                }
+            ]
+        }
+    ]
+}
