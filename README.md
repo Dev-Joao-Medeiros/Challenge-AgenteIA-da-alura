@@ -242,6 +242,39 @@ Acesse **http://localhost:8000** no navegador.
   <img src="https://github.com/user-attachments/assets/e5984916-18c1-41c4-9191-c1cb0bb1f63b" width="45%" alt="conversa" />
 </div>
 
+## Exemplos de Perguntas e Respostas
+
+**Eu:** Oi, tudo bem? Qual o responsavel pelo departamento financeiro?
+
+**Agente de IA:** Oi! Tudo ótimo, e você? 😊 O responsável pelo departamento financeiro é a Mariana Costa, que ocupa o cargo de Chief Financial Officer (CFO). Ela cuida do planejamento financeiro, contabilidade, gestão de riscos e tesouraria.
+
+**Fontes consultadas:**
+* Docs\Estrategico\Tyche Pay - Apresentação Institucional.pdf (Estratégico)
+
+---
+
+**Eu:** Boa noite, qual o faturamento do segundo trimestre de 2026?
+
+**Agente de IA:** Não encontrei essa informação nos documentos disponíveis. Para dúvidas desse tipo, entre em contato com a área responsável (RI, Financeiro, Jurídico, conforme o assunto).
+
+---
+
+**Eu:** Qual o responsavel pelo departamento de financeiro?
+
+**Agente de IA:** O responsável pelo departamento de financeiro é a Mariana Costa, que ocupa o cargo de Chief Financial Officer (CFO).
+
+**Fontes consultadas:**
+* Docs\Estrategico\Tyche Pay - Apresentação Institucional.pdf (Estratégico)
+
+---
+
+**Eu:** Qual o contato do departamento financeiro?
+
+**Agente de IA:** O contato do Departamento Financeiro é: - E-mail: financeiro@tychepay.com.br - Telefone: (11) 3003-9105 (horário de atendimento: dias úteis, das 09h às 18h)
+
+**Fontes consultadas:**
+* Docs\comunicacao interna\Lyche Pay - Diretório de Contatos Internos e Responsáveis por Área.pdf (Comunicação Interna)
+
 ## Vídeo do projeto funcionando
 
 [Vídeo Tyche Pay](https://drive.google.com/file/d/161Mraa9WyyG0bqy0KVHeLIReZNYCJt57/view?usp=drive_link)
