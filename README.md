@@ -128,19 +128,20 @@ Challenge-AgenteIA-da-alura/
 ├── tests/
 │   └── smoke/
 │       └── teste_busca.py
-├── chroma_db/
-├── conversas/
-├── feedback/
-├── saida/
+├── chroma_db/            (gerado localmente, não versionado)
+├── conversas/             (gerado em runtime, não versionado)
+├── feedback/              (gerado em runtime, não versionado)
+├── saida/                 (gerado localmente, não versionado)
 ├── .env.example
 ├── .gitignore
 ├── Dockerfile
 ├── Manutencao.md
 ├── README.md
 ├── requirements.txt
-├── Tyche_Pay_Mapeamento_de_Documentos.xlsx
-└── .env
+└── Tyche_Pay_Mapeamento_de_Documentos.xlsx
 ```
+
+> O arquivo `.env` (com as chaves reais de API) não é versionado — veja `.env.example` para o formato esperado, e a seção [Como rodar localmente](#como-rodar-localmente) para instruções de configuração.
 
 ---
 
@@ -155,7 +156,7 @@ Challenge-AgenteIA-da-alura/
 ### 1. Clonar o repositório e criar o ambiente virtual
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/Dev-Joao-Medeiros/Challenge-AgenteIA-da-alura.git
 cd Challenge-AgenteIA-da-alura
 
 python -m venv venv
@@ -236,6 +237,84 @@ Acesse **http://localhost:8000** no navegador.
   <img src="https://github.com/user-attachments/assets/e6b18884-67fb-46bc-ac32-e97319825c3e" width="45%" alt="tela-inicial" />
   <img src="https://github.com/user-attachments/assets/e5984916-18c1-41c4-9191-c1cb0bb1f63b" width="45%" alt="conversa" />
 </div>
+
+## Arquitetura de deploy na OCI
+ 
+O deploy foi feito na abordagem mais simples possível dentre as sugeridas
+pelo desafio — uma única instância de Compute rodando a aplicação
+containerizada — o suficiente para satisfazer o requisito de usar pelo
+menos um serviço do ecossistema OCI, mantendo a operação e o custo
+(zero, dentro do Always Free Tier) simples.
+ 
+### Serviço OCI utilizado
+ 
+- **OCI Compute** — instância de máquina virtual (`VM.Standard.E2.1.Micro`,
+  Always Free Tier) responsável por executar o container Docker com toda
+  a aplicação: pipeline de RAG, API (FastAPI) e interface web.
+### Recursos de rede criados (provisionados junto com a instância)
+ 
+- **VCN (Virtual Cloud Network)** dedicada ao projeto (`vcn-tyche-pay-agente`).
+- **Subnet pública** (`subnet-tyche-pay-agente`, CIDR `10.0.1.0/24`),
+  com atribuição automática de IP público à instância.
+- **Internet Gateway**, associado à Route Table da subnet (rota
+  `0.0.0.0/0` → Internet Gateway), permitindo tráfego de entrada/saída
+  da instância para a internet.
+- **Security List** com regras de entrada (*ingress*) liberando:
+  - Porta `22` (TCP) — acesso SSH para administração da instância.
+  - Porta `8000` (TCP) — porta em que a aplicação (Uvicorn) escuta,
+    exposta publicamente para acesso ao chat.
+
+### Diagrama simplificado
+ 
+```text
+                     Internet
+                        │
+                        ▼
+              ┌───────────────────────┐
+              │  Internet Gateway     │
+              └──────────┬────────────┘
+                         │
+              ┌──────────▼────────────────┐
+              │   VCN (10.0.1.0/24)       │
+              │  ┌─────────────────────┐  │
+              │  │   Subnet pública    │  │
+              │  │  ┌────────────────┐ │  │
+              │  │  │ OCI Compute    │ │  │
+              │  │  │ (E2.1.Micro)   │ │  │
+              │  │  │                │ │  │
+              │  │  │  Docker        │ │  │
+              │  │  │  ├─ FastAPI    │ │  │
+              │  │  │  ├─ RAG        │ │  │
+              │  │  │  ├─ ChromaDB   │ │  │
+              │  │  │  └─ Interface  │ │  │
+              │  │  │    (porta 8000)│ │  │
+              │  │  └────────────────┘ │  │
+              │  └─────────────────────┘  │
+              └───────────────────────────┘
+                Security List: 22, 8000
+```
+ 
+### Como a aplicação chega até a instância
+ 
+Os documentos processados (`saida/chunks.json`) e o índice vetorial
+(`chroma_db/`) são gerados **localmente** antes do deploy e embarcados
+diretamente na imagem Docker construída na própria instância — não há,
+nesta versão, um serviço de armazenamento externo (como o OCI Object
+Storage) hospedando os documentos originais. Essa é uma simplificação
+deliberada; o passo a passo completo, incluindo uma alternativa mais
+robusta com Object Storage e IAM, está descrito nos documentos
+`DEPLOY_OCI.md` e `DEPLOY_OCI_AVANCADO_referencia.md` do projeto.
+ 
+### Segredos e credenciais
+ 
+As chaves de API (`GROQ_API_KEY`, `COHERE_API_KEY`) são passadas ao
+container em tempo de execução via `--env-file .env` no `docker run`,
+não ficam embutidas na imagem Docker. O uso do **OCI Vault** para
+gerenciamento centralizado de segredos, sugerido pelo desafio, não foi
+implementado nesta versão — é um próximo passo natural caso o projeto
+evolua para múltiplos ambientes ou precise de rotação de credenciais.
+ 
+---
 
 ## Manutenção contínua
 
