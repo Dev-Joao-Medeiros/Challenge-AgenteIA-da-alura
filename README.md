@@ -1,5 +1,7 @@
 # Tyche Pay — Agente de IA Corporativo (Challenge Alura Agentes)
 
+<img width="1408" height="768" alt="Gemini_Generated_Image_" src="https://github.com/user-attachments/assets/3642e1f4-e4a9-43e6-9407-ba26215b7c07" />
+
 Agente de inteligência artificial corporativo, construído sobre uma arquitetura **RAG (Retrieval-Augmented Generation)**, capaz de responder perguntas de colaboradores com base em documentos internos da **Tyche Pay** — uma fintech fictícia criada para este desafio.
 
 O agente é acessível por uma interface de chat web simples, cita as fontes usadas em cada resposta e recusa-se a inventar informações que não estejam nos documentos.
@@ -225,6 +227,15 @@ Acesse **http://localhost:8000** no navegador.
 > **Limitação conhecida:** como o projeto não implementa autenticação de usuários, o histórico de conversas é global (visível a qualquer pessoa que acesse a interface), não individual por colaborador.
 
 ---
+
+## Projeto rodando na OCI:
+
+- Acesse [Tyche Pay](http://147.15.86.59:8000/) para acessar o Agente de IA da Tyche Pay que está hospedado na OCI (Oracle Cloud Infrastructure)
+
+<div style="display: flex; gap: 10px;">
+  <img src="https://github.com/user-attachments/assets/e6b18884-67fb-46bc-ac32-e97319825c3e" width="45%" alt="tela-inicial" />
+  <img src="https://github.com/user-attachments/assets/e5984916-18c1-41c4-9191-c1cb0bb1f63b" width="45%" alt="conversa" />
+</div>
 
 ## Manutenção contínua
 
