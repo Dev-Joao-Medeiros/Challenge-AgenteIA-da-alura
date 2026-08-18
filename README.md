@@ -277,7 +277,7 @@ Acesse **http://localhost:8000** no navegador.
 
 ## Vídeo do projeto funcionando
 
-[Vídeo Tyche Pay](https://drive.google.com/file/d/161Mraa9WyyG0bqy0KVHeLIReZNYCJt57/view?usp=sharing))
+[Vídeo Tyche Pay](https://drive.google.com/file/d/161Mraa9WyyG0bqy0KVHeLIReZNYCJt57/view?usp=sharing)
 
 ## Arquitetura de deploy na OCI
  
