@@ -1,0 +1,31 @@
+{
+    "id": "c482c42e-7a69-465b-a0fb-4c61ef29710f",
+    "titulo": "Oi, tudo bem?",
+    "criado_em": "2026-08-19T19:51:22.039062",
+    "atualizado_em": "2026-08-19T19:52:00.038052",
+    "mensagens": [
+        {
+            "papel": "usuario",
+            "texto": "Oi, tudo bem?"
+        },
+        {
+            "papel": "agente",
+            "texto": "Oi! Tudo ótimo por aqui, e você? Como posso ajudar hoje?",
+            "fontes": []
+        },
+        {
+            "papel": "usuario",
+            "texto": "Qual o contato do RH?"
+        },
+        {
+            "papel": "agente",
+            "texto": "O contato do RH é:\n\n- **Nome:** Juliana Martins – Head de RH  \n- **E‑mail:** juliana.martins@tychepay.com.br  \n- **Telefone / Ramal:** (11) 3003‑9107 (ramal 107)",
+            "fontes": [
+                {
+                    "arquivo": "Docs\\comunicacao-interna\\Tyche Pay - Diretório de Contatos Internos e Responsáveis por Área.pdf",
+                    "categoria": "Comunicação Interna"
+                }
+            ]
+        }
+    ]
+}

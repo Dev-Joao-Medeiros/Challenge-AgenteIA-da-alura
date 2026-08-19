@@ -2,40 +2,83 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Tyche Pay — Assistente Virtual</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
+
     <div class="app-layout">
+
         <aside class="sidebar">
-            <button id="btn-nova-conversa" class="btn-nova-conversa">+ Nova conversa</button>
+
+            <div class="logo">
+                <div class="logo-icon">T</div>
+
+                <div>
+                    <h2>Tyche Pay</h2>
+                    <span>Assistente Virtual</span>
+                </div>
+            </div>
+
+            <button id="btn-nova-conversa" class="btn-nova-conversa">
+                + Nova conversa
+            </button>
+
+            <div class="sidebar-title">
+                Conversas recentes
+            </div>
+
             <div id="lista-conversas" class="lista-conversas"></div>
+
         </aside>
 
         <main class="chat-wrapper">
+
             <header class="chat-header">
-                <h1>🤖 Tyche Pay — Assistente Virtual</h1>
+
+                <div>
+                    <h1>Assistente Virtual</h1>
+
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        IA Online
+                    </div>
+
+                </div>
+
             </header>
 
             <div id="historico" class="historico"></div>
 
             <form id="form-pergunta" class="form-pergunta">
-                <input type="text" id="input-pergunta" placeholder="Digite sua pergunta..." autocomplete="off"
-                    required />
+
+                <input id="input-pergunta" type="text"
+                    placeholder="Pergunte sobre documentos, políticas ou processos..." autocomplete="off" required />
+
                 <button type="submit">Enviar</button>
+
             </form>
 
-            <p class="disclaimer disclaimer-rodape">
-                Você está conversando com um agente de <strong>Inteligência Artificial</strong>,
-                não com uma pessoa. As respostas são baseadas nos documentos internos da empresa.
+            <p class="disclaimer">
+                A IA responde com base nos documentos internos da Tyche Pay.
             </p>
+
         </main>
+
     </div>
 
     <script src="/static/main.js"></script>
+
 </body>
 
 </html>
